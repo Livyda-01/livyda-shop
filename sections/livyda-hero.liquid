@@ -1,37 +1,36 @@
-<section class="lv-hero" id="livyda-hero">
+<section class="lv-hero">
   {%- if section.settings.image != blank -%}
     <img
-      class="lv-hero__image"
-      src="{{ section.settings.image | image_url: width: 2000 }}"
+      class="lv-hero__bg"
+      src="{{ section.settings.image | image_url: width: 1800 }}"
+      srcset="
+        {{ section.settings.image | image_url: width: 750 }} 750w,
+        {{ section.settings.image | image_url: width: 1100 }} 1100w,
+        {{ section.settings.image | image_url: width: 1800 }} 1800w
+      "
+      sizes="100vw"
       alt="{{ section.settings.image.alt | escape }}"
       loading="eager"
       fetchpriority="high"
+      width="{{ section.settings.image.width }}"
+      height="{{ section.settings.image.height }}"
     >
   {%- else -%}
-    <div class="lv-hero__image" style="background: linear-gradient(135deg, #E8E4DF 0%, #C8C3BC 100%);"></div>
+    <div class="lv-hero__bg" style="background: linear-gradient(160deg, #E9E5E0 0%, #C8C3BB 100%);"></div>
   {%- endif -%}
 
-  <div class="lv-hero__overlay"></div>
+  <div class="lv-hero__gradient"></div>
 
-  <div class="lv-hero__content">
-    {%- if section.settings.eyebrow != blank -%}
-      <span class="lv-hero__eyebrow">{{ section.settings.eyebrow }}</span>
+  <div class="lv-hero__body">
+    {%- if section.settings.label != blank -%}
+      <span class="lv-hero__label">{{ section.settings.label }}</span>
     {%- endif -%}
-
     {%- if section.settings.title != blank -%}
       <h1 class="lv-hero__title">{{ section.settings.title }}</h1>
     {%- endif -%}
-
-    {%- if section.settings.subtitle != blank -%}
-      <p class="lv-hero__subtitle">{{ section.settings.subtitle }}</p>
-    {%- endif -%}
-
-    {%- if section.settings.button_label != blank -%}
-      <a
-        href="{{ section.settings.button_link | default: '/collections/all' }}"
-        class="lv-hero__cta"
-      >
-        {{ section.settings.button_label }}
+    {%- if section.settings.btn_label != blank -%}
+      <a href="{{ section.settings.btn_link | default: '/collections/all' }}" class="lv-hero__btn">
+        {{ section.settings.btn_label }}
       </a>
     {%- endif -%}
   </div>
@@ -41,45 +40,12 @@
 {
   "name": "Livyda Hero",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Hero Image"
-    },
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow Text",
-      "default": "New Collection"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Headline",
-      "default": "Precision Cleaning"
-    },
-    {
-      "type": "text",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Minimal Design. Maximum Performance."
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button Label",
-      "default": "Shop Now"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Button Link"
-    }
+    { "type": "image_picker", "id": "image", "label": "Background Image" },
+    { "type": "text", "id": "label", "label": "Label", "default": "New Collection" },
+    { "type": "text", "id": "title", "label": "Headline", "default": "Precision Cleaning" },
+    { "type": "text", "id": "btn_label", "label": "Button", "default": "Shop Now" },
+    { "type": "url", "id": "btn_link", "label": "Button Link" }
   ],
-  "presets": [
-    {
-      "name": "Livyda Hero"
-    }
-  ]
+  "presets": [{ "name": "Livyda Hero" }]
 }
 {% endschema %}

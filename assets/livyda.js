@@ -1,103 +1,90 @@
-/* ============================================================
-   LIVYDA — JavaScript
-   ============================================================ */
+/* LIVYDA — minimal JS */
+(function () {
+  'use strict';
 
-document.addEventListener('DOMContentLoaded', function () {
+  /* -- Newsletter popup ------------------------------------ */
+  var COOKIE = 'lv_nl';
 
-  /* ---- NEWSLETTER POPUP ---------------------------------- */
-  const overlay = document.getElementById('lv-popup-overlay');
-  if (overlay) {
-    const COOKIE_KEY = 'lv_newsletter_shown';
-
-    function setCookie(name, days) {
-      const d = new Date();
-      d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
-      document.cookie = name + '=true;expires=' + d.toUTCString() + ';path=/';
-    }
-
-    function getCookie(name) {
-      return document.cookie.split(';').some(c => c.trim().startsWith(name + '='));
-    }
-
-    function closePopup() {
-      overlay.classList.remove('is-visible');
-    }
-
-    if (!getCookie(COOKIE_KEY)) {
-      setTimeout(() => overlay.classList.add('is-visible'), 2000);
-    }
-
-    // Close on X button
-    const closeBtn = document.getElementById('lv-popup-close');
-    if (closeBtn) closeBtn.addEventListener('click', () => {
-      setCookie(COOKIE_KEY, 30);
-      closePopup();
+  function getCookie(n) {
+    return document.cookie.split(';').some(function (c) {
+      return c.trim().startsWith(n + '=');
     });
+  }
 
-    // Close on skip
-    const skipBtn = document.getElementById('lv-popup-skip');
-    if (skipBtn) skipBtn.addEventListener('click', () => {
-      setCookie(COOKIE_KEY, 7);
-      closePopup();
-    });
+  function setCookie(n, days) {
+    var d = new Date();
+    d.setTime(d.getTime() + days * 864e5);
+    document.cookie = n + '=1;expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+  }
 
-    // Close on overlay click
+  function initPopup() {
+    var overlay = document.getElementById('lv-nl');
+    if (!overlay) return;
+
+    if (getCookie(COOKIE)) return;
+
+    setTimeout(function () {
+      overlay.classList.add('is-open');
+    }, 2200);
+
+    function close(days) {
+      setCookie(COOKIE, days || 30);
+      overlay.classList.remove('is-open');
+    }
+
+    var btnX = document.getElementById('lv-nl-x');
+    var btnSkip = document.getElementById('lv-nl-skip');
+    var form = document.getElementById('lv-nl-form');
+
+    if (btnX) btnX.addEventListener('click', function () { close(30); });
+    if (btnSkip) btnSkip.addEventListener('click', function () { close(7); });
+
     overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) {
-        setCookie(COOKIE_KEY, 1);
-        closePopup();
-      }
+      if (e.target === overlay) close(1);
     });
 
-    // Form submit
-    const form = document.getElementById('lv-popup-form');
     if (form) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        const email = form.querySelector('input[type="email"]').value;
-        if (email) {
-          setCookie(COOKIE_KEY, 365);
-          // Show success state
-          form.innerHTML = '<p style="font-family:var(--lv-body);font-size:12px;font-weight:300;letter-spacing:0.06em;color:var(--lv-text-soft);text-align:center;padding:20px 0;">Thank you. Your 10% discount has been sent.</p>';
-          setTimeout(closePopup, 2500);
-        }
+        var email = form.querySelector('input').value;
+        if (!email) return;
+        close(365);
+        form.innerHTML = '<p style="font-family:var(--lv-sans);font-size:12px;color:var(--lv-soft);text-align:center;padding:16px 0">Thank you — your 10% code is on its way.</p>';
       });
     }
   }
 
-  /* ---- SCROLL REVEAL ------------------------------------- */
-  if ('IntersectionObserver' in window) {
-    const revealEls = document.querySelectorAll('.lv-reveal, .lv-reveal-stagger');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+  /* -- Scroll reveal --------------------------------------- */
+  function initReveal() {
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.lv-in,.lv-stagger').forEach(function (el) {
+        el.classList.add('visible');
+      });
+      return;
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
 
-    revealEls.forEach(el => observer.observe(el));
-  } else {
-    // Fallback: show all
-    document.querySelectorAll('.lv-reveal, .lv-reveal-stagger').forEach(el => {
-      el.classList.add('is-visible');
+    document.querySelectorAll('.lv-in,.lv-stagger').forEach(function (el) {
+      io.observe(el);
     });
   }
 
-  /* ---- HEADER SCROLL BEHAVIOR ---------------------------- */
-  const header = document.querySelector('.section-header');
-  if (header) {
-    let lastY = 0;
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      if (y > 80) {
-        header.style.boxShadow = '0 1px 0 rgba(10,10,10,0.06)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
-      lastY = y;
-    }, { passive: true });
+  /* -- Init ------------------------------------------------ */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      initPopup();
+      initReveal();
+    });
+  } else {
+    initPopup();
+    initReveal();
   }
-
-});
+}());
