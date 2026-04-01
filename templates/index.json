@@ -1,13 +1,14 @@
 {
   "sections": {
-    "livyda_hero": {
-      "type": "livyda-hero",
+    "livyda_robot_hero": {
+      "type": "livyda-robot-hero",
       "settings": {
-        "eyebrow": "New Collection",
-        "title": "Precision Cleaning",
-        "subtitle": "Minimal Design. Maximum Performance.",
-        "button_label": "Shop Now",
-        "button_link": "/collections/all"
+        "eyebrow": "Next Generation",
+        "title": "Precision<br>Redefined",
+        "subtitle": "High-performance cleaning. Minimal design. Modern living.",
+        "button_label": "Discover",
+        "button_link": "/collections/all",
+        "spline_url": "https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode"
       }
     },
     "livyda_products": {
@@ -52,7 +53,7 @@
     }
   },
   "order": [
-    "livyda_hero",
+    "livyda_robot_hero",
     "livyda_products",
     "livyda_about"
   ]

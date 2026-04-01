@@ -669,6 +669,296 @@ body {
 .lv-reveal-stagger.is-visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.30s; }
 
 /* ============================================================
+   ROBOT HERO
+   ============================================================ */
+.lv-robot-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background: var(--lv-off-white);
+  overflow: hidden;
+  padding-top: var(--lv-header-h);
+}
+
+.lv-robot-hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 80px 80px;
+  position: relative;
+  z-index: 2;
+  animation: lv-fade-up 1s var(--lv-ease) both;
+}
+
+.lv-robot-hero__eyebrow {
+  display: block;
+  font-family: var(--lv-body);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--lv-mid-gray);
+  margin-bottom: 24px;
+}
+
+.lv-robot-hero__title {
+  font-family: var(--lv-display);
+  font-size: clamp(44px, 6vw, 88px);
+  font-weight: 200;
+  font-style: italic;
+  color: var(--lv-black);
+  line-height: 1.0;
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+}
+
+.lv-robot-hero__text {
+  font-family: var(--lv-body);
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+  color: var(--lv-text-soft);
+  margin: 0 0 48px;
+  max-width: 320px;
+}
+
+.lv-robot-hero__cta {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--lv-body);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--lv-white);
+  background: var(--lv-black);
+  padding: 16px 40px;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+.lv-robot-hero__cta:hover { opacity: 0.7; }
+
+.lv-robot-hero__spline {
+  position: relative;
+  height: 100%;
+  min-height: 600px;
+  background: var(--lv-off-white);
+}
+
+.lv-robot-hero__spline spline-viewer {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Hide Spline watermark */
+.lv-robot-hero__spline-cover {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 120px;
+  height: 40px;
+  background: var(--lv-off-white);
+  z-index: 10;
+}
+
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+.lv-about-page__hero {
+  position: relative;
+  height: 70vh;
+  min-height: 480px;
+  overflow: hidden;
+  margin-top: var(--lv-header-h);
+}
+
+.lv-about-page__hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.lv-about-page__hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.1), rgba(10,10,10,0.45));
+}
+
+.lv-about-page__hero-content {
+  position: absolute;
+  bottom: 60px;
+  left: 80px;
+  z-index: 2;
+}
+
+.lv-about-page__hero-label {
+  display: block;
+  font-family: var(--lv-body);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 12px;
+}
+
+.lv-about-page__hero-title {
+  font-family: var(--lv-display);
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 200;
+  font-style: italic;
+  color: var(--lv-white);
+  margin: 0;
+  line-height: 1.1;
+  max-width: 600px;
+}
+
+.lv-about-page__intro {
+  padding: 100px 80px;
+  background: var(--lv-white);
+}
+
+.lv-about-page__intro-inner {
+  max-width: 640px;
+}
+
+.lv-about-page__intro-text {
+  font-family: var(--lv-display);
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 200;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--lv-black);
+  margin: 0;
+}
+
+.lv-about-page__values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 0.5px solid var(--lv-divider);
+}
+
+.lv-about-page__value {
+  padding: 60px 40px;
+  border-right: 0.5px solid var(--lv-divider);
+}
+.lv-about-page__value:last-child { border-right: none; }
+
+.lv-about-page__value-num {
+  display: block;
+  font-family: var(--lv-display);
+  font-size: 36px;
+  font-weight: 200;
+  font-style: italic;
+  color: var(--lv-warm-gray);
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.lv-about-page__value-title {
+  font-family: var(--lv-body);
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lv-black);
+  margin: 0 0 16px;
+}
+
+.lv-about-page__value-text {
+  font-family: var(--lv-body);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--lv-text-soft);
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.lv-about-page__mission {
+  padding: 120px 80px;
+  background: var(--lv-black);
+}
+
+.lv-about-page__mission-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lv-about-page__mission-label {
+  display: block;
+  font-family: var(--lv-body);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 32px;
+}
+
+.lv-about-page__mission-quote {
+  font-family: var(--lv-display);
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 200;
+  font-style: italic;
+  color: var(--lv-white);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.lv-about-page__cta {
+  padding: 80px;
+  text-align: center;
+  background: var(--lv-white);
+}
+
+.lv-about-page__cta-btn {
+  display: inline-block;
+  font-family: var(--lv-body);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--lv-white);
+  background: var(--lv-black);
+  padding: 18px 60px;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+.lv-about-page__cta-btn:hover { opacity: 0.7; }
+
+/* ============================================================
+   PRODUCT CARD DESCRIPTION
+   ============================================================ */
+.lv-card__desc {
+  font-family: var(--lv-body);
+  font-size: 11px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--lv-text-soft);
+  margin: 6px 0 0;
+  letter-spacing: 0.03em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ============================================================
+   LOGO OVERRIDE
+   ============================================================ */
+.header__heading-logo {
+  max-height: 36px !important;
+  width: auto !important;
+}
+
+/* ============================================================
    MOBILE
    ============================================================ */
 @media (max-width: 749px) {

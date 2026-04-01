@@ -21,6 +21,7 @@
                 alt="{{ product.featured_image.alt | escape | default: product.title }}"
                 loading="lazy"
                 width="800"
+                height="1067"
               >
             {%- else -%}
               <div class="lv-card__image" style="background: var(--lv-warm-gray); width:100%; height:100%;"></div>
@@ -33,6 +34,9 @@
 
           <div class="lv-card__info">
             <p class="lv-card__name">{{ product.title }}</p>
+            {%- if product.description != blank -%}
+              <p class="lv-card__desc">{{ product.description | strip_html | truncate: 100 }}</p>
+            {%- endif -%}
             <p class="lv-card__price">
               {%- if product.compare_at_price > product.price -%}
                 <s style="font-size:13px;color:var(--lv-mid-gray);margin-right:8px;">{{ product.compare_at_price | money }}</s>

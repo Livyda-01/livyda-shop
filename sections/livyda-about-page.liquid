@@ -1,0 +1,161 @@
+<div class="lv-about-page">
+
+  <!-- Hero -->
+  <div class="lv-about-page__hero">
+    {%- if section.settings.hero_image != blank -%}
+      <img
+        class="lv-about-page__hero-img"
+        src="{{ section.settings.hero_image | image_url: width: 2000 }}"
+        alt="{{ section.settings.hero_image.alt | escape }}"
+        loading="eager"
+      >
+    {%- else -%}
+      <div class="lv-about-page__hero-img" style="background: var(--lv-warm-gray);"></div>
+    {%- endif -%}
+    <div class="lv-about-page__hero-overlay"></div>
+    <div class="lv-about-page__hero-content">
+      <span class="lv-about-page__hero-label">{{ section.settings.hero_label | default: 'About Us' }}</span>
+      <h1 class="lv-about-page__hero-title">{{ section.settings.hero_title | default: 'We believe in quiet excellence' }}</h1>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <div class="lv-about-page__intro lv-reveal">
+    <div class="lv-about-page__intro-inner">
+      <p class="lv-about-page__intro-text">{{ section.settings.intro_text | default: 'We curate high-performance cleaning solutions for the modern home — designed with purpose, built for precision.' }}</p>
+    </div>
+  </div>
+
+  <!-- Values -->
+  <div class="lv-about-page__values lv-reveal-stagger">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'value' -%}
+        <div class="lv-about-page__value" {{ block.shopify_attributes }}>
+          <span class="lv-about-page__value-num">0{{ forloop.index }}</span>
+          <h3 class="lv-about-page__value-title">{{ block.settings.title }}</h3>
+          <p class="lv-about-page__value-text">{{ block.settings.text }}</p>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <!-- Mission -->
+  <div class="lv-about-page__mission lv-reveal">
+    <div class="lv-about-page__mission-inner">
+      <span class="lv-about-page__mission-label">{{ section.settings.mission_label | default: 'Our Mission' }}</span>
+      <blockquote class="lv-about-page__mission-quote">
+        {{ section.settings.mission_text | default: '"Minimal design. Maximum performance. This is our standard."' }}
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="lv-about-page__cta lv-reveal">
+    <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="lv-about-page__cta-btn">
+      {{ section.settings.cta_label | default: 'Shop Now' }}
+    </a>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Livyda About Page",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_label",
+      "label": "Hero Label",
+      "default": "About Us"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "We believe in quiet excellence"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "label": "Intro Text",
+      "default": "We curate high-performance cleaning solutions for the modern home — designed with purpose, built for precision."
+    },
+    {
+      "type": "text",
+      "id": "mission_label",
+      "label": "Mission Label",
+      "default": "Our Mission"
+    },
+    {
+      "type": "textarea",
+      "id": "mission_text",
+      "label": "Mission Quote",
+      "default": "\"Minimal design. Maximum performance. This is our standard.\""
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Quality"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Every product is selected for exceptional build quality and lasting performance."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Livyda About Page",
+      "blocks": [
+        {
+          "type": "value",
+          "settings": {
+            "title": "Quality",
+            "text": "Every product is selected for exceptional build quality and lasting performance."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "title": "Design",
+            "text": "We believe that functional objects should also be beautiful objects."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "title": "Service",
+            "text": "From first click to delivery — a seamless, premium experience."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
