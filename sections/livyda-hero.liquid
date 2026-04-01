@@ -1,0 +1,85 @@
+<section class="lv-hero" id="livyda-hero">
+  {%- if section.settings.image != blank -%}
+    <img
+      class="lv-hero__image"
+      src="{{ section.settings.image | image_url: width: 2000 }}"
+      alt="{{ section.settings.image.alt | escape }}"
+      loading="eager"
+      fetchpriority="high"
+    >
+  {%- else -%}
+    <div class="lv-hero__image" style="background: linear-gradient(135deg, #E8E4DF 0%, #C8C3BC 100%);"></div>
+  {%- endif -%}
+
+  <div class="lv-hero__overlay"></div>
+
+  <div class="lv-hero__content">
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="lv-hero__eyebrow">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+
+    {%- if section.settings.title != blank -%}
+      <h1 class="lv-hero__title">{{ section.settings.title }}</h1>
+    {%- endif -%}
+
+    {%- if section.settings.subtitle != blank -%}
+      <p class="lv-hero__subtitle">{{ section.settings.subtitle }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.button_label != blank -%}
+      <a
+        href="{{ section.settings.button_link | default: '/collections/all' }}"
+        class="lv-hero__cta"
+      >
+        {{ section.settings.button_label }}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Livyda Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "New Collection"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Headline",
+      "default": "Precision Cleaning"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Minimal Design. Maximum Performance."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Livyda Hero"
+    }
+  ]
+}
+{% endschema %}

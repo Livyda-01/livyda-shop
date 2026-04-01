@@ -1,0 +1,66 @@
+<section class="lv-about" id="livyda-about">
+  <div class="lv-about__inner lv-reveal">
+    <span class="lv-about__label">{{ section.settings.label | default: 'About' }}</span>
+    <p class="lv-about__text">{{ section.settings.text | default: 'We create minimal, high-performance products for modern living.' }}</p>
+    {%- if section.settings.link_label != blank -%}
+      <a href="{{ section.settings.link | default: '/pages/about' }}" class="lv-about__link">
+        {{ section.settings.link_label }}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+<div class="lv-trust lv-reveal">
+  <div class="lv-trust__item">
+    <span class="lv-trust__icon">✦</span>
+    <span class="lv-trust__text">Free shipping from CHF 50</span>
+  </div>
+  <div class="lv-trust__item">
+    <span class="lv-trust__icon">◎</span>
+    <span class="lv-trust__text">Easy returns</span>
+  </div>
+  <div class="lv-trust__item">
+    <span class="lv-trust__icon">⬡</span>
+    <span class="lv-trust__text">Secure checkout</span>
+  </div>
+  <div class="lv-trust__item">
+    <span class="lv-trust__icon">◈</span>
+    <span class="lv-trust__text">Customer support</span>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Livyda About",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Our Philosophy"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "We create minimal, high-performance products for modern living."
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link Label",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Livyda About"
+    }
+  ]
+}
+{% endschema %}

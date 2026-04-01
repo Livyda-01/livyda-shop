@@ -1,0 +1,118 @@
+<section class="lv-products" id="livyda-products">
+  <div class="lv-products__header lv-reveal">
+    <span class="lv-products__label">{{ section.settings.label | default: 'Our Selection' }}</span>
+    <h2 class="lv-products__title">{{ section.settings.title | default: 'Featured Products' }}</h2>
+  </div>
+
+  <div class="lv-products__grid lv-reveal-stagger">
+    {%- for block in section.blocks -%}
+      {%- assign product = block.settings.product -%}
+      {%- if product != blank -%}
+        <a
+          href="{{ product.url }}"
+          class="lv-card"
+          {{ block.shopify_attributes }}
+        >
+          <div class="lv-card__image-wrap">
+            {%- if product.featured_image != blank -%}
+              <img
+                class="lv-card__image"
+                src="{{ product.featured_image | image_url: width: 800 }}"
+                alt="{{ product.featured_image.alt | escape | default: product.title }}"
+                loading="lazy"
+                width="800"
+              >
+            {%- else -%}
+              <div class="lv-card__image" style="background: var(--lv-warm-gray); width:100%; height:100%;"></div>
+            {%- endif -%}
+
+            {%- if block.settings.badge != blank -%}
+              <span class="lv-card__badge">{{ block.settings.badge }}</span>
+            {%- endif -%}
+          </div>
+
+          <div class="lv-card__info">
+            <p class="lv-card__name">{{ product.title }}</p>
+            <p class="lv-card__price">
+              {%- if product.compare_at_price > product.price -%}
+                <s style="font-size:13px;color:var(--lv-mid-gray);margin-right:8px;">{{ product.compare_at_price | money }}</s>
+              {%- endif -%}
+              {{ product.price | money }}
+            </p>
+          </div>
+        </a>
+      {%- else -%}
+        <!-- Placeholder card -->
+        <div class="lv-card" {{ block.shopify_attributes }}>
+          <div class="lv-card__image-wrap">
+            <div style="background: var(--lv-warm-gray); width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+              <span style="font-family:var(--lv-body);font-size:10px;letter-spacing:0.15em;color:var(--lv-mid-gray);text-transform:uppercase;">Select Product</span>
+            </div>
+            {%- if block.settings.badge != blank -%}
+              <span class="lv-card__badge">{{ block.settings.badge }}</span>
+            {%- endif -%}
+          </div>
+          <div class="lv-card__info">
+            <p class="lv-card__name">{{ block.settings.placeholder_name | default: 'Product Name' }}</p>
+            <p class="lv-card__price">CHF —</p>
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Livyda Products",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Our Selection"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Curated Essentials"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge (optional)",
+          "placeholder": "New"
+        },
+        {
+          "type": "text",
+          "id": "placeholder_name",
+          "label": "Placeholder name (if no product selected)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Livyda Products",
+      "blocks": [
+        { "type": "product" },
+        { "type": "product" },
+        { "type": "product" }
+      ]
+    }
+  ]
+}
+{% endschema %}
