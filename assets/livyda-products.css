@@ -193,11 +193,18 @@ section[id*="trust_bar"] .multicolumn-list {
   row-gap: 56px !important;
 }
 
-/* ---- Trust Bar: immer 3 Spalten ------------------------- */
-@media (min-width: 600px) {
-  .multicolumn-list {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
+/* ---- Trust Bar: immer 3 Spalten auf allen Viewports ----- */
+.multicolumn-list.grid--3-col-desktop,
+.multicolumn-list.grid--1-col-tablet-down.grid--3-col-desktop {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-rows: auto !important;
+}
+
+.multicolumn-list.grid--3-col-desktop .multicolumn-list__item {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: unset !important;
 }
 
 /* ---- Sektions-Header: editorial ------------------------- */
