@@ -69,15 +69,58 @@
   padding-bottom: 2px !important;
 }
 
-/* ---- Icons (Suche, Konto, Warenkorb) --------------------- */
+/* ---- Icons: alle gleich groß, gleichmäßig --------------- */
 .header__icon {
-  width: 20px !important;
-  height: 20px !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
 }
 
 .header__icon svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+}
+
+/* Country Selector: gleiche Größe wie Icons */
+.localization-form__select,
+.disclosure__button {
+  font-size: 0.72rem !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  padding: 0 8px !important;
+  height: 40px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  border: none !important;
+  background: none !important;
+  cursor: pointer !important;
+  gap: 4px !important;
+}
+
+.disclosure__button svg {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+/* Icons-Gruppe: gleichmäßiger Abstand */
+.header__icons {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Cart Badge */
+.cart-count-bubble {
   width: 18px !important;
   height: 18px !important;
+  font-size: 0.65rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 /* ---- Trennlinie deaktivieren ----------------------------- */
