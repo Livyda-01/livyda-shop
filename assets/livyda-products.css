@@ -56,13 +56,12 @@
   auf allen Breakpoints außer echtem Mobilgerät.
 */
 
-/* Tablet-Bereich (750px–989px): erzwinge 3 Spalten */
-@media screen and (min-width: 750px) and (max-width: 989px) {
+/* Ab 500px: erzwinge immer 3 Spalten (feste Pixelwerte) */
+@media screen and (min-width: 500px) {
   .multicolumn-list .grid__item {
-    width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3) !important;
-    max-width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3) !important;
-    flex-shrink: 0 !important;
-    flex-grow: 0 !important;
+    flex: 0 0 calc(33.33% - 20px) !important;
+    width: calc(33.33% - 20px) !important;
+    max-width: calc(33.33% - 20px) !important;
   }
 }
 
@@ -117,13 +116,12 @@
    3. PRODUKT-GRID — immer 3 Spalten in einer Zeile
    ============================================================ */
 
-/* Tablet-Bereich (750px–989px): erzwinge 3 Spalten */
-@media screen and (min-width: 750px) and (max-width: 989px) {
+/* Ab 500px: erzwinge immer 3 Spalten (feste Pixelwerte) */
+@media screen and (min-width: 500px) {
   .product-grid .grid__item {
-    width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3) !important;
-    max-width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3) !important;
-    flex-shrink: 0 !important;
-    flex-grow: 0 !important;
+    flex: 0 0 calc(33.33% - 20px) !important;
+    width: calc(33.33% - 20px) !important;
+    max-width: calc(33.33% - 20px) !important;
   }
 }
 
