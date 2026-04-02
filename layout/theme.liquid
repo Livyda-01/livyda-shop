@@ -298,6 +298,40 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+
+    <style>
+      /* LIVYDA — Kritische Layout-Overrides (lädt zuletzt, gewinnt immer) */
+
+      /* Produkt-Grid: 3 Spalten ab 500px */
+      @media screen and (min-width: 500px) {
+        ul.product-grid li.grid__item,
+        ul.product-grid > .grid__item {
+          flex: 0 0 calc(33.33% - 22px) !important;
+          width: calc(33.33% - 22px) !important;
+          max-width: calc(33.33% - 22px) !important;
+        }
+      }
+
+      /* Trust Bar: 3 Spalten ab 500px */
+      @media screen and (min-width: 500px) {
+        ul.multicolumn-list li.grid__item,
+        ul.multicolumn-list > .grid__item {
+          flex: 0 0 calc(33.33% - 22px) !important;
+          width: calc(33.33% - 22px) !important;
+          max-width: calc(33.33% - 22px) !important;
+        }
+      }
+
+      /* Mobile: 1 Spalte unter 500px */
+      @media screen and (max-width: 499px) {
+        ul.product-grid li.grid__item,
+        ul.multicolumn-list li.grid__item {
+          flex: 0 0 100% !important;
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+      }
+    </style>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
