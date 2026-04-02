@@ -148,6 +148,65 @@
   margin-top: 0 !important;
 }
 
+/* ---- Slideshow Hero Text: LV-Stil -------------------- */
+.slideshow .slide__text-wrapper,
+.slideshow .slide__text-content {
+  text-align: center !important;
+  max-width: 700px !important;
+  margin: 0 auto !important;
+}
+
+.slideshow .slide__heading,
+.slideshow h1,
+.slideshow h2 {
+  font-family: var(--font-heading-family) !important;
+  font-style: normal !important;
+  font-weight: 300 !important;
+  font-size: clamp(36px, 5.5vw, 80px) !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.05 !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+  margin-bottom: 20px !important;
+}
+
+.slideshow .slide__subheading {
+  font-size: 0.78rem !important;
+  letter-spacing: 0.25em !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.80) !important;
+  margin-bottom: 36px !important;
+  font-weight: 400 !important;
+}
+
+.slideshow .slide__cta a,
+.slideshow .button {
+  font-size: 0.72rem !important;
+  letter-spacing: 0.28em !important;
+  text-transform: uppercase !important;
+  padding: 14px 48px !important;
+  border-radius: 0 !important;
+  border: 1px solid rgba(255,255,255,0.7) !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  transition: all 0.35s ease !important;
+}
+
+.slideshow .slide__cta a:hover,
+.slideshow .button:hover {
+  background: rgba(255,255,255,0.15) !important;
+  border-color: #fff !important;
+}
+
+/* ---- Scrolled header: thin border instead of shadow ---- */
+.lv-scrolled .section-header {
+  background: rgba(238, 249, 249, 0.97) !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(20, 84, 89, 0.10) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
 /* ---- Mobile ------------------------------------------ */
 @media (max-width: 749px) {
   .header {
