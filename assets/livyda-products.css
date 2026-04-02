@@ -162,6 +162,13 @@
   color: var(--lv-accent) !important;
 }
 
+/* ---- Trust Bar: immer 3 Spalten (kein 2+1) ----------- */
+@media (min-width: 600px) {
+  .multicolumn-list {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
 /* ---- Mobile ------------------------------------------ */
 @media (max-width: 749px) {
   .card__heading,
