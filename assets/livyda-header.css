@@ -1,0 +1,162 @@
+/* ============================================================
+   LIVYDA — Header im LUXE-Stil
+   Transparent über Hero · Elegant · Minimalistisch
+   ============================================================ */
+
+/* ---- Announcement Bar ------------------------------------ */
+.section-announcement-bar {
+  font-size: 11px !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  padding: 9px 0 !important;
+}
+
+.announcement-bar__message {
+  font-size: 11px !important;
+  letter-spacing: 0.18em !important;
+}
+
+/* ---- Header Basis ---------------------------------------- */
+.section-header {
+  transition: background 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+.header-wrapper {
+  border-bottom: none !important;
+}
+
+/* Header-Höhe */
+.header {
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+  min-height: 64px !important;
+}
+
+/* ---- Logo ----------------------------------------------- */
+.header__heading-link {
+  text-decoration: none !important;
+}
+
+.header__heading {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.35em !important;
+  text-transform: uppercase !important;
+}
+
+.header__heading-logo {
+  max-height: 40px !important;
+  width: auto !important;
+}
+
+/* ---- Navigation ------------------------------------------ */
+.header__menu-item {
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.20em !important;
+  text-transform: uppercase !important;
+  padding: 0 16px !important;
+  opacity: 0.85;
+  transition: opacity 0.2s !important;
+}
+
+.header__menu-item:hover {
+  opacity: 1 !important;
+}
+
+.header__menu-item .header__active-menu-item {
+  border-bottom: 1px solid currentColor !important;
+  padding-bottom: 2px !important;
+}
+
+/* ---- Icons (Suche, Konto, Warenkorb) --------------------- */
+.header__icon {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.header__icon svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* ---- Trennlinie deaktivieren ----------------------------- */
+.header-wrapper--border-bottom {
+  border-bottom: none !important;
+}
+
+/* ============================================================
+   TRANSPARENT-OVER-HERO (nur Homepage)
+   ============================================================ */
+
+/* Beim Laden der Homepage: Header über dem Slideshow */
+.lv-header-transparent .shopify-section-group-header-group {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.lv-header-transparent .section-announcement-bar {
+  position: relative;
+  z-index: 11;
+}
+
+.lv-header-transparent .section-header {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Weiße Elemente wenn transparent */
+.lv-header-transparent:not(.lv-scrolled) .header__heading,
+.lv-header-transparent:not(.lv-scrolled) .header__heading-link .h2 {
+  color: #fff !important;
+}
+
+.lv-header-transparent:not(.lv-scrolled) .header__menu-item,
+.lv-header-transparent:not(.lv-scrolled) .header__menu-item span {
+  color: #fff !important;
+}
+
+.lv-header-transparent:not(.lv-scrolled) .header__icon svg path,
+.lv-header-transparent:not(.lv-scrolled) .header__icon svg circle,
+.lv-header-transparent:not(.lv-scrolled) .header__icon svg line,
+.lv-header-transparent:not(.lv-scrolled) .header__icon svg polyline {
+  stroke: #fff !important;
+}
+
+.lv-header-transparent:not(.lv-scrolled) .header__icon {
+  color: #fff !important;
+}
+
+.lv-header-transparent:not(.lv-scrolled) .cart-count-bubble {
+  background: rgba(255,255,255,0.25) !important;
+  color: #fff !important;
+}
+
+/* Scrolled: weißer Hintergrund */
+.lv-scrolled .section-header {
+  background: rgba(255,255,255,0.97) !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.07) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Slideshow-Abstand korrigieren wenn Header absolut */
+.lv-header-transparent .main-content-start {
+  margin-top: 0 !important;
+}
+
+/* ---- Mobile ------------------------------------------ */
+@media (max-width: 749px) {
+  .header {
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+    min-height: 56px !important;
+  }
+
+  .header__heading-logo {
+    max-height: 32px !important;
+  }
+}
