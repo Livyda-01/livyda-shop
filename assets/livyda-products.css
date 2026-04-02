@@ -1,91 +1,60 @@
 /* ============================================================
-   LIVYDA — Typografie-Hierarchie + Layout
-   Richtlinien: H1 36–48px | H2 28–32px | H3 20–24px
-                Body 16–18px | Meta 12–14px
-   Dawn nutzt Flexbox → Overrides mit width/flex.
+   LIVYDA — Design System v3
+   Einheitlich, konsistent, fehlerfrei
+   ============================================================
+
+   SKALA:
+   --lv-text-xs:   12px  (Meta, Vendor, Badge)
+   --lv-text-sm:   13px  (Eyebrow, Buttons, Captions)
+   --lv-text-base: 16px  (Body)
+   --lv-text-md:   17px  (Produkttitel)
+   --lv-text-lg:   14px  (Preis)
+   H3: clamp(18, 2vw, 24px)
+   H2: clamp(22, 2.8vw, 32px)
+   H1: clamp(28, 4vw, 48px)
+
+   BUTTONS — 1 einheitliches System:
+   Standard:  13px | 500 | 0.20em | 14px 40px | border 1px | radius 0
+   Kompakt:   13px | 500 | 0.20em | 11px 24px | border 1px | radius 0
    ============================================================ */
 
-/* ---- Brand Variables ------------------------------------ */
+/* ---- Brand Tokens --------------------------------------- */
 :root {
   --lv-accent:       #145459;
-  --lv-accent-light: #3AB8B8;
+  --lv-teal:         #3AB8B8;
   --lv-text:         #145459;
   --lv-muted:        rgba(20, 84, 89, 0.45);
   --lv-border:       rgba(20, 84, 89, 0.10);
   --lv-bg:           #EEF9F9;
   --lv-white:        #ffffff;
   --lv-ease:         cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Einheitliche Typografie-Tokens */
+  --lv-text-xs:      12px;
+  --lv-text-sm:      13px;
+  --lv-text-base:    16px;
+  --lv-text-md:      17px;
+  --lv-text-price:   14px;
+  --lv-tracking-sm:  0.12em;
+  --lv-tracking-md:  0.20em;
+  --lv-tracking-lg:  0.28em;
 }
 
 /* ============================================================
-   1. GLOBALE TYPOGRAFIE-HIERARCHIE
+   1. GLOBALE RESETS (einmal, ohne Duplikate)
    ============================================================ */
 
-/* H1 — Hauptüberschrift: 36–48px, Bold 700 */
-h1, .h1 {
-  font-size: clamp(28px, 4vw, 48px) !important;
-  font-weight: 700 !important;
-  line-height: 1.2 !important;
-  letter-spacing: -0.01em !important;
-  color: var(--lv-text) !important;
-}
-
-/* H2 — Zwischentitel: 28–32px, Semibold 600 */
-h2, .h2 {
-  font-size: clamp(22px, 2.8vw, 32px) !important;
-  font-weight: 600 !important;
-  line-height: 1.3 !important;
-  letter-spacing: -0.005em !important;
-  color: var(--lv-text) !important;
-}
-
-/* H3 — Untertitel: 20–24px, Medium 500 */
-h3, .h3 {
-  font-size: clamp(18px, 2vw, 24px) !important;
-  font-weight: 500 !important;
-  line-height: 1.35 !important;
-  color: var(--lv-text) !important;
-}
-
-/* Body — Fliesstext: 16–18px, Regular 400, gute Lesbarkeit */
-body, p, .rte p, li {
-  font-size: 16px !important;
-  font-weight: 400 !important;
-  line-height: 1.65 !important;
-  color: var(--lv-text) !important;
-}
-
-/* Eyebrow / Pre-Heading: 12–14px, Medium 500, Grossbuchstaben */
-.eyebrow,
-.caption,
-.caption-with-letter-spacing,
-.overline {
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.18em !important;
-  text-transform: uppercase !important;
-  line-height: 1.4 !important;
-}
-
-/* Meta / Small: 12–14px, Regular */
-.meta, small, .caption-large,
-.footer__heading, .footer p {
-  font-size: 13px !important;
-  font-weight: 400 !important;
-  line-height: 1.5 !important;
-}
-
-/* ============================================================
-   2. GLOBAL RESETS
-   ============================================================ */
-
+/* Kein Border-Radius → einheitlich eckig */
+*,
 .button, .btn, input, select, textarea,
 .card--card, .card--standard .card__inner,
 .card-wrapper, .badge, .popup-modal,
-.quick-add__submit, .product-form__submit {
+.quick-add__submit, .product-form__submit,
+.disclosure__button, .localization-form__select {
   border-radius: 0 !important;
 }
 
+/* Kein Card-Rahmen, kein Schatten */
 .card--card,
 .card--standard .card__inner {
   border: none !important;
@@ -103,14 +72,106 @@ body, p, .rte p, li {
 }
 
 /* ============================================================
-   3. TRUST BAR — immer 3 Spalten in einer Zeile
+   2. TYPOGRAFIE-HIERARCHIE
    ============================================================ */
 
+/* Body: 16px, gute Lesbarkeit */
+body {
+  font-size: var(--lv-text-base) !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  color: var(--lv-text) !important;
+}
+
+/* H1: 36–48px, Bold */
+h1, .h1 {
+  font-size: clamp(28px, 4vw, 48px) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--lv-text) !important;
+}
+
+/* H2: 28–32px, Semibold */
+h2, .h2 {
+  font-size: clamp(22px, 2.8vw, 32px) !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.005em !important;
+  color: var(--lv-text) !important;
+}
+
+/* H3: 20–24px, Medium */
+h3, .h3 {
+  font-size: clamp(18px, 2vw, 24px) !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+  color: var(--lv-text) !important;
+}
+
+/* ============================================================
+   3. EINHEITLICHES BUTTON-SYSTEM
+   Alle Buttons: 13px | 500 | 0.20em | radius 0
+   Standard: 14px 40px | Kompakt: 11px 24px
+   ============================================================ */
+
+.button,
+.button--primary,
+.button--secondary,
+a.button,
+.shopify-payment-button__button {
+  font-size: var(--lv-text-sm) !important;
+  font-weight: 500 !important;
+  letter-spacing: var(--lv-tracking-md) !important;
+  text-transform: uppercase !important;
+  padding: 14px 40px !important;
+  border-radius: 0 !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+  line-height: 1 !important;
+}
+
+/* Hover: Primär-Button invertiert */
+.button--primary:hover,
+.button:not(.button--secondary):hover {
+  opacity: 0.85 !important;
+}
+
+/* Hover: Sekundär/Ghost-Button invertiert */
+.button--secondary:hover {
+  opacity: 0.7 !important;
+}
+
+/* Kompakt-Button: Quick-Add, Cart-Buttons */
+.quick-add__submit,
+.product-form__submit {
+  font-size: var(--lv-text-sm) !important;
+  font-weight: 500 !important;
+  letter-spacing: var(--lv-tracking-md) !important;
+  text-transform: uppercase !important;
+  padding: 11px 24px !important;
+  border-radius: 0 !important;
+  border-width: 1px !important;
+  transition: opacity 0.3s ease !important;
+  line-height: 1 !important;
+}
+
+.quick-add__submit:hover,
+.product-form__submit:hover {
+  opacity: 0.8 !important;
+}
+
+/* ============================================================
+   4. TRUST BAR — 3 Spalten (Flexbox-Override für Dawn)
+   ============================================================ */
+
+/* Ab 500px: erzwinge 3 Spalten */
 @media screen and (min-width: 500px) {
   .multicolumn-list .grid__item {
-    flex: 0 0 calc(33.33% - 20px) !important;
-    width: calc(33.33% - 20px) !important;
-    max-width: calc(33.33% - 20px) !important;
+    flex: 0 0 calc(33.33% - 22px) !important;
+    width: calc(33.33% - 22px) !important;
+    max-width: calc(33.33% - 22px) !important;
   }
 }
 
@@ -122,7 +183,7 @@ body, p, .rte p, li {
 
 .multicolumn-list__item {
   border-left: 1px solid var(--lv-border) !important;
-  padding: 0 24px !important;
+  padding: 0 28px !important;
   box-sizing: border-box !important;
 }
 
@@ -135,23 +196,23 @@ body, p, .rte p, li {
   padding-right: 0 !important;
 }
 
-/* Trust Bar — Eyebrow-Stil (13px, Uppercase, Medium) */
+/* Trust Bar — Titel (Eyebrow) */
 .multicolumn-card__info .inline-richtext,
 .multicolumn-card .inline-richtext {
-  font-size: 13px !important;
+  font-size: var(--lv-text-sm) !important;
   font-weight: 500 !important;
-  letter-spacing: 0.16em !important;
+  letter-spacing: var(--lv-tracking-md) !important;
   text-transform: uppercase !important;
   color: var(--lv-text) !important;
-  margin-bottom: 5px !important;
+  margin-bottom: 6px !important;
   display: block !important;
   line-height: 1.4 !important;
 }
 
-/* Trust Bar — Beschreibung (Body small) */
+/* Trust Bar — Beschreibung */
 .multicolumn-card__info .rte p,
 .multicolumn-card .rte p {
-  font-size: 14px !important;
+  font-size: var(--lv-text-price) !important;
   font-weight: 400 !important;
   letter-spacing: 0.02em !important;
   color: var(--lv-muted) !important;
@@ -160,14 +221,14 @@ body, p, .rte p, li {
 }
 
 /* ============================================================
-   4. PRODUKT-GRID — immer 3 Spalten in einer Zeile
+   5. PRODUKT-GRID — 3 Spalten (Flexbox-Override für Dawn)
    ============================================================ */
 
 @media screen and (min-width: 500px) {
   .product-grid .grid__item {
-    flex: 0 0 calc(33.33% - 20px) !important;
-    width: calc(33.33% - 20px) !important;
-    max-width: calc(33.33% - 20px) !important;
+    flex: 0 0 calc(33.33% - 22px) !important;
+    width: calc(33.33% - 22px) !important;
+    max-width: calc(33.33% - 22px) !important;
   }
 }
 
@@ -177,13 +238,11 @@ body, p, .rte p, li {
 }
 
 /* ============================================================
-   5. PRODUKTKARTEN — H3-Hierarchie
+   6. PRODUKTKARTEN
    ============================================================ */
 
-.card .card__inner .card__media,
 .card__media {
   overflow: hidden !important;
-  border-radius: 0 !important;
 }
 
 .card__media img,
@@ -200,17 +259,17 @@ body, p, .rte p, li {
 .card-information__wrapper,
 .card .card__content {
   text-align: center !important;
-  padding: 18px 8px 0 !important;
+  padding: 18px 8px 8px !important;
 }
 
-/* Produkttitel — H3: 20px, weight 500 */
+/* Produkttitel: H3-Stil */
 .card__heading,
 .card__heading a,
 .card__heading .full-unstyled-link {
-  font-size: 17px !important;
+  font-size: var(--lv-text-md) !important;
   font-weight: 500 !important;
   font-style: normal !important;
-  letter-spacing: 0.04em !important;
+  letter-spacing: 0.03em !important;
   text-transform: none !important;
   color: var(--lv-text) !important;
   text-decoration: none !important;
@@ -224,7 +283,7 @@ body, p, .rte p, li {
   transition: opacity 0.3s ease !important;
 }
 
-/* Preis — Meta: 14px */
+/* Preis */
 .price__container,
 .price {
   justify-content: center !important;
@@ -232,7 +291,7 @@ body, p, .rte p, li {
 
 .price-item,
 .price-item--regular {
-  font-size: 14px !important;
+  font-size: var(--lv-text-price) !important;
   font-weight: 400 !important;
   font-style: normal !important;
   letter-spacing: 0.04em !important;
@@ -240,52 +299,41 @@ body, p, .rte p, li {
 }
 
 .price-item--sale {
-  color: var(--lv-accent-light) !important;
+  color: var(--lv-teal) !important;
   font-weight: 500 !important;
 }
 
-/* Vendor — Eyebrow: 12px */
-.card__vendor {
-  font-size: 12px !important;
+/* Vendor — Eyebrow */
+.card__vendor,
+.caption-with-letter-spacing {
+  font-size: var(--lv-text-xs) !important;
   font-weight: 500 !important;
-  letter-spacing: 0.16em !important;
+  letter-spacing: var(--lv-tracking-md) !important;
   text-transform: uppercase !important;
   color: var(--lv-muted) !important;
   margin-bottom: 5px !important;
+  font-style: normal !important;
 }
 
 /* Badge */
 .badge {
-  font-size: 12px !important;
+  font-size: var(--lv-text-xs) !important;
   font-weight: 500 !important;
-  letter-spacing: 0.12em !important;
+  letter-spacing: var(--lv-tracking-sm) !important;
   text-transform: uppercase !important;
-  border-radius: 0 !important;
   padding: 3px 8px !important;
 }
 
-/* Quick-Add Button */
-.quick-add__submit,
-.product-form__submit {
-  border-radius: 0 !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.16em !important;
-  text-transform: uppercase !important;
-  padding: 12px 24px !important;
-  transition: all 0.35s ease !important;
-}
-
 /* ============================================================
-   6. SEKTIONS-ÜBERSCHRIFTEN
+   7. SEKTIONS-ÜBERSCHRIFTEN
    ============================================================ */
 
-/* Eyebrow über Sektion (z. B. "UNSERE PRODUKTE") */
+/* Eyebrow Label (z. B. "UNSERE PRODUKTE") */
 .featured-collection .title,
 .collection__title {
-  font-size: 13px !important;
+  font-size: var(--lv-text-sm) !important;
   font-weight: 500 !important;
-  letter-spacing: 0.28em !important;
+  letter-spacing: var(--lv-tracking-lg) !important;
   text-transform: uppercase !important;
   text-align: center !important;
   margin-bottom: 48px !important;
@@ -294,7 +342,7 @@ body, p, .rte p, li {
 }
 
 /* ============================================================
-   7. MULTIROW — Editorial Split
+   8. MULTIROW — Editorial Split
    ============================================================ */
 
 .multirow .multirow__inner,
@@ -306,19 +354,19 @@ body, p, .rte p, li {
   padding: 56px 64px !important;
 }
 
-/* Caption / Eyebrow */
+/* Eyebrow Caption */
 .row__caption,
 .multirow-card__caption {
-  font-size: 13px !important;
+  font-size: var(--lv-text-sm) !important;
   font-weight: 500 !important;
-  letter-spacing: 0.24em !important;
+  letter-spacing: var(--lv-tracking-md) !important;
   text-transform: uppercase !important;
   color: var(--lv-muted) !important;
   margin-bottom: 16px !important;
   display: block !important;
 }
 
-/* H2 — Haupttitel im Multirow */
+/* H2 Titel */
 .row__heading,
 .multirow-card__heading {
   font-size: clamp(26px, 2.8vw, 36px) !important;
@@ -329,40 +377,23 @@ body, p, .rte p, li {
   margin-bottom: 20px !important;
 }
 
-/* Body Text im Multirow: 16px, lesbar */
+/* Body Text */
 .row__text p,
 .multirow-card__text p,
 .row__text,
 .multirow-card__text {
-  font-size: 16px !important;
+  font-size: var(--lv-text-base) !important;
   font-weight: 400 !important;
-  line-height: 1.7 !important;
+  line-height: 1.75 !important;
   color: var(--lv-muted) !important;
   max-width: 420px !important;
   margin-bottom: 28px !important;
 }
 
 /* ============================================================
-   8. BUTTONS
-   ============================================================ */
-
-.button,
-.button--secondary,
-a.button {
-  border-radius: 0 !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.20em !important;
-  text-transform: uppercase !important;
-  padding: 14px 40px !important;
-  transition: all 0.35s ease !important;
-}
-
-/* ============================================================
    9. PRODUKTSEITE
    ============================================================ */
 
-/* H2 auf Produktseite */
 .product__title {
   font-size: clamp(24px, 2.5vw, 36px) !important;
   font-weight: 600 !important;
@@ -373,9 +404,9 @@ a.button {
 
 .product__description,
 .product__description p {
-  font-size: 16px !important;
+  font-size: var(--lv-text-base) !important;
   font-weight: 400 !important;
-  line-height: 1.7 !important;
+  line-height: 1.75 !important;
   color: var(--lv-muted) !important;
 }
 
@@ -398,66 +429,46 @@ a.button {
 }
 
 /* ============================================================
-   11. MOBILE — ca. 20–25% kleiner als Desktop
+   11. MOBILE (max 749px) — ca. 20% kleiner
    ============================================================ */
 
 @media screen and (max-width: 749px) {
 
-  /* H1 Mobile: 28–34px */
-  h1, .h1 {
-    font-size: clamp(26px, 7vw, 34px) !important;
-    line-height: 1.2 !important;
-  }
+  h1, .h1 { font-size: clamp(26px, 7vw, 34px) !important; }
+  h2, .h2 { font-size: clamp(20px, 5.5vw, 26px) !important; }
 
-  /* H2 Mobile: 22–26px */
-  h2, .h2 {
-    font-size: clamp(20px, 5.5vw, 26px) !important;
-  }
+  body { font-size: 15px !important; }
 
-  /* Body Mobile: 15–16px */
-  body, p, .rte p {
-    font-size: 15px !important;
-    line-height: 1.6 !important;
-  }
-
-  /* Produkttitel Mobile */
   .card__heading,
-  .card__heading a {
-    font-size: 15px !important;
-  }
+  .card__heading a { font-size: 15px !important; }
 
   .row__heading,
-  .multirow-card__heading {
-    font-size: clamp(22px, 6vw, 28px) !important;
-  }
+  .multirow-card__heading { font-size: clamp(22px, 6vw, 28px) !important; }
 
   .row__text p,
   .multirow-card__text p,
   .row__text,
-  .multirow-card__text {
-    font-size: 15px !important;
-  }
+  .multirow-card__text { font-size: 15px !important; }
 
-  .multirow__row-content {
-    padding: 28px 20px !important;
-  }
+  .multirow__row-content { padding: 28px 20px !important; }
 
   .product-grid.grid {
     column-gap: 10px !important;
     row-gap: 32px !important;
   }
 
-  /* Trust Bar: gestapelt auf Mobile */
+  /* Trust Bar: gestapelt */
   .multicolumn-list__item {
-    border-left: none !important;
-    border-top: 1px solid var(--lv-border) !important;
-    padding: 14px 0 !important;
     flex: 0 0 100% !important;
     width: 100% !important;
     max-width: 100% !important;
+    border-left: none !important;
+    border-top: 1px solid var(--lv-border) !important;
+    padding: 16px 0 !important;
   }
 
   .multicolumn-list__item:first-child {
     border-top: none !important;
+    padding-top: 0 !important;
   }
 }

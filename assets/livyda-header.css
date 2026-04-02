@@ -1,31 +1,31 @@
 /* ============================================================
-   LIVYDA — Header im LUXE-Stil
-   Transparent über Hero · Elegant · Minimalistisch
+   LIVYDA — Header & Slideshow
+   Einheitlich mit Design System v3
    ============================================================ */
 
-/* ---- Announcement Bar ------------------------------------ */
+/* ---- Announcement Bar ----------------------------------- */
 .section-announcement-bar {
-  font-size: 11px !important;
+  font-size: 12px !important;
   letter-spacing: 0.18em !important;
   text-transform: uppercase !important;
   padding: 9px 0 !important;
 }
 
 .announcement-bar__message {
-  font-size: 11px !important;
+  font-size: 12px !important;
   letter-spacing: 0.18em !important;
+  font-weight: 500 !important;
 }
 
 /* ---- Header Basis ---------------------------------------- */
 .section-header {
-  transition: background 0.4s ease, box-shadow 0.4s ease !important;
+  transition: background 0.4s ease, border-color 0.4s ease !important;
 }
 
 .header-wrapper {
   border-bottom: none !important;
 }
 
-/* Header-Höhe */
 .header {
   padding-top: 18px !important;
   padding-bottom: 18px !important;
@@ -40,7 +40,7 @@
 .header__heading {
   font-size: 15px !important;
   font-weight: 700 !important;
-  letter-spacing: 0.35em !important;
+  letter-spacing: 0.32em !important;
   text-transform: uppercase !important;
 }
 
@@ -51,13 +51,13 @@
 
 /* ---- Navigation ------------------------------------------ */
 .header__menu-item {
-  font-size: 10px !important;
-  font-weight: 400 !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
   letter-spacing: 0.20em !important;
   text-transform: uppercase !important;
-  padding: 0 16px !important;
-  opacity: 0.85;
-  transition: opacity 0.2s !important;
+  padding: 0 14px !important;
+  opacity: 0.80 !important;
+  transition: opacity 0.25s ease !important;
 }
 
 .header__menu-item:hover {
@@ -67,9 +67,10 @@
 .header__menu-item .header__active-menu-item {
   border-bottom: 1px solid currentColor !important;
   padding-bottom: 2px !important;
+  opacity: 1 !important;
 }
 
-/* ---- Icons: alle gleich groß, gleichmäßig --------------- */
+/* ---- Header Icons — alle 40×40px, SVG 20×20px ----------- */
 .header__icon {
   width: 40px !important;
   height: 40px !important;
@@ -77,6 +78,11 @@
   align-items: center !important;
   justify-content: center !important;
   padding: 0 !important;
+  transition: opacity 0.25s ease !important;
+}
+
+.header__icon:hover {
+  opacity: 0.65 !important;
 }
 
 .header__icon svg {
@@ -85,42 +91,34 @@
   display: block !important;
 }
 
-/* Country Selector: gleiche Größe wie Icons */
+/* ---- Country/Language Selector -------------------------- */
 .localization-form__select,
 .disclosure__button {
-  font-size: 0.72rem !important;
-  letter-spacing: 0.12em !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.16em !important;
   text-transform: uppercase !important;
-  padding: 0 8px !important;
+  padding: 0 10px !important;
   height: 40px !important;
   display: inline-flex !important;
   align-items: center !important;
   border: none !important;
   background: none !important;
   cursor: pointer !important;
-  gap: 4px !important;
+  gap: 5px !important;
+  transition: opacity 0.25s ease !important;
 }
 
+.localization-form__select:hover,
+.disclosure__button:hover {
+  opacity: 0.65 !important;
+}
+
+/* Caret-Icon im Selector: kleiner als Action-Icons */
 .disclosure__button svg {
   width: 10px !important;
   height: 10px !important;
-}
-
-/* Icons-Gruppe: gleichmäßiger Abstand */
-.header__icons {
-  display: flex !important;
-  align-items: center !important;
-  gap: 4px !important;
-}
-
-/* Cart Badge */
-.cart-count-bubble {
-  width: 18px !important;
-  height: 18px !important;
-  font-size: 0.65rem !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  flex-shrink: 0 !important;
 }
 
 /* ---- Trennlinie deaktivieren ----------------------------- */
@@ -128,11 +126,29 @@
   border-bottom: none !important;
 }
 
+/* ---- Icons-Gruppe --------------------------------------- */
+.header__icons {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2px !important;
+}
+
+/* ---- Cart Badge ----------------------------------------- */
+.cart-count-bubble {
+  width: 18px !important;
+  height: 18px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+}
+
 /* ============================================================
    TRANSPARENT-OVER-HERO (nur Homepage)
    ============================================================ */
 
-/* Beim Laden der Homepage: Header über dem Slideshow */
 .lv-header-transparent .shopify-section-group-header-group {
   position: absolute !important;
   top: 0;
@@ -141,14 +157,10 @@
   z-index: 10;
 }
 
-.lv-header-transparent .section-announcement-bar {
-  position: relative;
-  z-index: 11;
-}
-
 .lv-header-transparent .section-header {
   background: transparent !important;
   box-shadow: none !important;
+  border-bottom: none !important;
 }
 
 /* Weiße Elemente wenn transparent */
@@ -165,7 +177,8 @@
 .lv-header-transparent:not(.lv-scrolled) .header__icon svg path,
 .lv-header-transparent:not(.lv-scrolled) .header__icon svg circle,
 .lv-header-transparent:not(.lv-scrolled) .header__icon svg line,
-.lv-header-transparent:not(.lv-scrolled) .header__icon svg polyline {
+.lv-header-transparent:not(.lv-scrolled) .header__icon svg polyline,
+.lv-header-transparent:not(.lv-scrolled) .header__icon svg rect {
   stroke: #fff !important;
 }
 
@@ -178,41 +191,44 @@
   color: #fff !important;
 }
 
-/* Scrolled: weißer Hintergrund */
+.lv-header-transparent:not(.lv-scrolled) .disclosure__button,
+.lv-header-transparent:not(.lv-scrolled) .localization-form__select {
+  color: #fff !important;
+}
+
+/* Scrolled: heller Hintergrund mit dünner Linie */
 .lv-scrolled .section-header {
-  background: rgba(255,255,255,0.97) !important;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.07) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(238, 249, 249, 0.97) !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(20, 84, 89, 0.10) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
 }
 
-/* Slideshow-Abstand korrigieren wenn Header absolut */
-.lv-header-transparent .main-content-start {
-  margin-top: 0 !important;
-}
+/* ============================================================
+   SLIDESHOW HERO
+   ============================================================ */
 
-/* ---- Slideshow Hero Text: LV-Stil -------------------- */
 .slideshow .slide__text-wrapper,
 .slideshow .slide__text-content {
   text-align: center !important;
-  max-width: 700px !important;
+  max-width: 720px !important;
   margin: 0 auto !important;
 }
 
-/* H1 Hero: 40–56px, Bold 700, Line-height 1.2 */
+/* H1 Hero: 36–56px, Bold 700 */
 .slideshow .slide__heading,
 .slideshow h1,
 .slideshow h2 {
-  font-weight: 700 !important;
   font-size: clamp(34px, 5vw, 56px) !important;
+  font-weight: 700 !important;
   letter-spacing: -0.01em !important;
-  line-height: 1.2 !important;
+  line-height: 1.15 !important;
   color: #ffffff !important;
-  text-shadow: none !important;
   margin-bottom: 16px !important;
 }
 
-/* Eyebrow/Subheading: 13px, Medium 500, Uppercase */
+/* Eyebrow/Subheading: 13px, Medium, Uppercase */
 .slideshow .slide__subheading {
   font-size: 13px !important;
   font-weight: 500 !important;
@@ -222,36 +238,33 @@
   margin-bottom: 36px !important;
 }
 
+/* Hero Button — Ghost (konsistent mit Button-System) */
 .slideshow .slide__cta a,
-.slideshow .button {
-  font-size: 0.72rem !important;
-  letter-spacing: 0.28em !important;
+.slideshow .slide__cta .button {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.20em !important;
   text-transform: uppercase !important;
-  padding: 14px 48px !important;
+  padding: 14px 40px !important;
   border-radius: 0 !important;
-  border: 1px solid rgba(255,255,255,0.7) !important;
+  border: 1px solid rgba(255,255,255,0.70) !important;
   background: transparent !important;
   color: #ffffff !important;
-  transition: all 0.35s ease !important;
+  transition: background 0.3s ease, border-color 0.3s ease !important;
+  line-height: 1 !important;
 }
 
 .slideshow .slide__cta a:hover,
-.slideshow .button:hover {
+.slideshow .slide__cta .button:hover {
   background: rgba(255,255,255,0.15) !important;
-  border-color: #fff !important;
+  border-color: rgba(255,255,255,1) !important;
 }
 
-/* ---- Scrolled header: thin border instead of shadow ---- */
-.lv-scrolled .section-header {
-  background: rgba(238, 249, 249, 0.97) !important;
-  box-shadow: none !important;
-  border-bottom: 1px solid rgba(20, 84, 89, 0.10) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-}
+/* ============================================================
+   MOBILE
+   ============================================================ */
 
-/* ---- Mobile ------------------------------------------ */
-@media (max-width: 749px) {
+@media screen and (max-width: 749px) {
   .header {
     padding-top: 14px !important;
     padding-bottom: 14px !important;
@@ -260,5 +273,15 @@
 
   .header__heading-logo {
     max-height: 32px !important;
+  }
+
+  .header__menu-item {
+    font-size: 10px !important;
+    padding: 0 10px !important;
+  }
+
+  .slideshow .slide__heading,
+  .slideshow h1 {
+    font-size: clamp(28px, 8vw, 40px) !important;
   }
 }

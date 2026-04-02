@@ -300,20 +300,12 @@
     </script>
 
     <style>
-      /* LIVYDA — Kritische Layout-Overrides (lädt zuletzt, gewinnt immer) */
+      /* LIVYDA — Kritische Overrides (letzte Cascade-Schicht, höchste Priorität) */
 
-      /* Produkt-Grid: 3 Spalten ab 500px */
+      /* 3-Spalten-Grid: Produkte + Trust Bar ab 500px */
       @media screen and (min-width: 500px) {
         ul.product-grid li.grid__item,
-        ul.product-grid > .grid__item {
-          flex: 0 0 calc(33.33% - 22px) !important;
-          width: calc(33.33% - 22px) !important;
-          max-width: calc(33.33% - 22px) !important;
-        }
-      }
-
-      /* Trust Bar: 3 Spalten ab 500px */
-      @media screen and (min-width: 500px) {
+        ul.product-grid > .grid__item,
         ul.multicolumn-list li.grid__item,
         ul.multicolumn-list > .grid__item {
           flex: 0 0 calc(33.33% - 22px) !important;
@@ -322,7 +314,7 @@
         }
       }
 
-      /* Mobile: 1 Spalte unter 500px */
+      /* Mobile: gestapelt unter 500px */
       @media screen and (max-width: 499px) {
         ul.product-grid li.grid__item,
         ul.multicolumn-list li.grid__item {
@@ -330,6 +322,15 @@
           width: 100% !important;
           max-width: 100% !important;
         }
+      }
+
+      /* Alle Border-Radius global auf 0 */
+      *, *::before, *::after {
+        border-radius: 0 !important;
+      }
+      /* Ausnahme: Cart-Badge bleibt rund */
+      .cart-count-bubble {
+        border-radius: 50% !important;
       }
     </style>
   </head>
