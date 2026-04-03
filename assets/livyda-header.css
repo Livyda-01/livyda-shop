@@ -147,11 +147,27 @@
   opacity: 0.6 !important;
 }
 
-.header__icon svg {
+.header__icon svg,
+.header__icon svg * {
   width: 20px !important;
   height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
   display: block !important;
   flex-shrink: 0 !important;
+}
+
+/* SVG viewBox fix — alle Icons gleich gross */
+.header__icon .svg-wrapper,
+.header__icon .icon {
+  width: 20px !important;
+  height: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
 }
 
 /* Label unter Icon — lowercase, leicht, klein */
