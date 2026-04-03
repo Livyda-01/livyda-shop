@@ -121,25 +121,30 @@
   flex-shrink: 0 !important;
 }
 
-/* ---- Icons Gruppe — gleichmässiger Abstand -------------- */
+/* ---- Icons Gruppe --------------------------------------- */
 .header__icons {
   display: flex !important;
   align-items: center !important;
-  gap: 0 !important;
-  margin-left: 8px !important;
+  gap: 4px !important;
+  margin-left: 12px !important;
 }
 
 /* ---- Icon mit Label (Suche, Konto, Warenkorb) ----------- */
 .header__icon {
   width: auto !important;
   height: auto !important;
-  padding: 8px 12px !important;
+  padding: 6px 10px !important;
   display: inline-flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  gap: 4px !important;
+  gap: 5px !important;
   position: relative !important;
   transition: opacity 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.header__icon:hover {
+  opacity: 0.6 !important;
 }
 
 .header__icon svg {
@@ -149,40 +154,73 @@
   flex-shrink: 0 !important;
 }
 
-/* Label unter Icon */
+/* Label unter Icon — lowercase, leicht, klein */
 .header__icon::after {
-  font-size: 9px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
   line-height: 1 !important;
   color: currentColor !important;
-  opacity: 0.6 !important;
+  opacity: 0.75 !important;
 }
 
 .header__icon--search::after  { content: 'Suche' !important; }
 .header__icon--account::after { content: 'Konto' !important; }
 .header__icon--cart::after    { content: 'Warenkorb' !important; }
 
-/* ---- Cart Badge — Warenkorb betonen --------------------- */
-.header__icon--cart {
-  padding: 8px 14px 8px 12px !important;
-}
-
+/* ---- Cart Badge ----------------------------------------- */
 .cart-count-bubble {
   position: absolute !important;
-  top: 4px !important;
-  right: 6px !important;
-  width: 17px !important;
-  height: 17px !important;
+  top: 2px !important;
+  right: 4px !important;
+  width: 18px !important;
+  height: 18px !important;
   font-size: 10px !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   border-radius: 50% !important;
   background: #111111 !important;
   color: #ffffff !important;
+  line-height: 1 !important;
+}
+
+/* ---- Country/Language Selektoren ----------------------- */
+.localization-form,
+.localization-selector {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.localization-form__select,
+.disclosure__button {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  padding: 0 6px !important;
+  height: 36px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  border: none !important;
+  background: none !important;
+  cursor: pointer !important;
+  gap: 4px !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.localization-form__select:hover,
+.disclosure__button:hover {
+  opacity: 0.6 !important;
+}
+
+.disclosure__button svg {
+  width: 10px !important;
+  height: 10px !important;
+  flex-shrink: 0 !important;
 }
 
 /* ============================================================
