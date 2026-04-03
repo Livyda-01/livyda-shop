@@ -1,0 +1,409 @@
+/* ============================================================
+   LIVYDA — Custom Overrides
+
+   Diese Datei wird NIEMALS von Shopify überschrieben.
+   Hier kannst du alle Design-Anpassungen vornehmen.
+
+   STRUKTUR:
+   1. FARBEN          → Hauptfarben ändern
+   2. SCHRIFT         → Grössen & Gewichte
+   3. ABSTÄNDE        → Padding & Margins
+   4. HEADER          → Logo, Nav, Icons
+   5. HERO / SLIDESHOW
+   6. TRUST BAR
+   7. PRODUKTE        → Grid & Karten
+   8. STORY SECTION
+   9. BUTTONS
+   10. FOOTER
+   ============================================================ */
+
+
+/* ============================================================
+   1. FARBEN — hier zentral ändern
+   ============================================================ */
+:root {
+  --c-bg:          #FFFFFF;    /* Seitenhintergrund */
+  --c-bg-soft:     #F5F5F5;    /* Heller Grau-Hintergrund (z.B. Trust Bar) */
+  --c-text:        #111111;    /* Haupttext */
+  --c-muted:       #777777;    /* Gedämpfter Text (Preise, Labels) */
+  --c-border:      #E8E8E8;    /* Linien & Trennungen */
+  --c-accent:      #111111;    /* Akzentfarbe (Buttons, Links) */
+  --c-accent-hover:#333333;    /* Akzent Hover */
+  --c-white:       #FFFFFF;
+  --c-black:       #111111;
+}
+
+
+/* ============================================================
+   2. SCHRIFT — Grössen & Gewichte
+   ============================================================ */
+:root {
+  --fs-hero:     clamp(36px, 5.5vw, 72px);   /* Hero H1 */
+  --fs-h1:       clamp(32px, 4.5vw, 56px);   /* Seitenüberschriften */
+  --fs-h2:       clamp(24px, 3vw, 40px);     /* Sektionsüberschriften */
+  --fs-h3:       clamp(18px, 2vw, 26px);     /* Karten-Titel */
+  --fs-body:     16px;                        /* Fliesstext */
+  --fs-small:    14px;                        /* Preise, Meta */
+  --fs-xs:       11px;                        /* Labels, Eyebrows */
+
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+}
+
+
+/* ============================================================
+   3. ABSTÄNDE — Sektionen & Grid
+   ============================================================ */
+:root {
+  --space-section:  80px;     /* Abstand zwischen Sektionen */
+  --space-grid:     20px;     /* Abstand zwischen Grid-Elementen */
+  --space-card:     16px;     /* Innenabstand Karten */
+}
+
+
+/* ============================================================
+   4. HEADER
+   ============================================================ */
+
+/* Höhe & Padding */
+.header {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+/* Logo-Grösse */
+.header__heading-logo {
+  max-height: 40px !important;
+}
+
+/* Navigation */
+.header__menu-item {
+  font-size: var(--fs-xs) !important;
+  font-weight: var(--fw-semibold) !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+}
+
+/* Localization: Flag + Land | Währung als zwei getrennte Gruppen */
+.localization-form__select {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+}
+
+.localization-country-group,
+.localization-currency-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.localization-currency-group {
+  margin-left: 8px;
+}
+
+/* Scrolled-Zustand */
+.lv-scrolled .section-header {
+  background: rgba(255, 255, 255, 0.97) !important;
+  border-bottom: 1px solid var(--c-border) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+
+/* ============================================================
+   5. HERO / SLIDESHOW
+   ============================================================ */
+
+.slideshow .slide__heading,
+.slideshow h1 {
+  font-size: var(--fs-hero) !important;
+  font-weight: var(--fw-bold) !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+  color: #fff !important;
+}
+
+.slideshow .slide__subheading {
+  font-size: var(--fs-xs) !important;
+  font-weight: var(--fw-medium) !important;
+  letter-spacing: 0.20em !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.80) !important;
+}
+
+.slideshow .slide__cta a,
+.slideshow .slide__cta .button {
+  font-size: var(--fs-xs) !important;
+  font-weight: var(--fw-bold) !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  padding: 16px 48px !important;
+  border: 1px solid rgba(255,255,255,0.80) !important;
+  background: transparent !important;
+  color: #fff !important;
+  border-radius: 0 !important;
+  transition: background 0.3s ease !important;
+}
+
+.slideshow .slide__cta a:hover,
+.slideshow .slide__cta .button:hover {
+  background: rgba(255,255,255,0.15) !important;
+}
+
+
+/* ============================================================
+   6. TRUST BAR
+   ============================================================ */
+
+/* 3 Spalten erzwingen (Dawn Flexbox Override) */
+@media screen and (min-width: 500px) {
+  ul.multicolumn-list li.grid__item,
+  ul.multicolumn-list > .grid__item {
+    flex: 0 0 calc(33.33% - 14px) !important;
+    width: calc(33.33% - 14px) !important;
+    max-width: calc(33.33% - 14px) !important;
+  }
+}
+
+/* Trennlinien */
+.multicolumn-list {
+  border-top: 1px solid var(--c-border) !important;
+  border-bottom: 1px solid var(--c-border) !important;
+}
+
+.multicolumn-list__item {
+  border-left: 1px solid var(--c-border) !important;
+  padding: 0 32px !important;
+  box-sizing: border-box !important;
+}
+
+.multicolumn-list__item:first-child {
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+/* Trust Bar Titel */
+.multicolumn-card__info .inline-richtext {
+  font-size: var(--fs-xs) !important;
+  font-weight: var(--fw-semibold) !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: var(--c-text) !important;
+}
+
+/* Trust Bar Text */
+.multicolumn-card__info .rte p {
+  font-size: var(--fs-small) !important;
+  color: var(--c-muted) !important;
+}
+
+
+/* ============================================================
+   7. PRODUKTE — Grid & Karten
+   ============================================================ */
+
+/* 3 Spalten erzwingen */
+@media screen and (min-width: 500px) {
+  ul.product-grid li.grid__item,
+  ul.product-grid > .grid__item {
+    flex: 0 0 calc(33.33% - 14px) !important;
+    width: calc(33.33% - 14px) !important;
+    max-width: calc(33.33% - 14px) !important;
+  }
+}
+
+/* Grid-Abstand */
+.product-grid.grid {
+  column-gap: var(--space-grid) !important;
+  row-gap: 48px !important;
+}
+
+/* Karte: kein Rahmen */
+.card--card,
+.card--standard .card__inner {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Bild Hover-Zoom */
+.card__media { overflow: hidden !important; }
+
+.card__media img,
+.card .media img {
+  transition: transform 0.9s ease !important;
+}
+
+.card-wrapper:hover .card__media img {
+  transform: scale(1.04) !important;
+}
+
+/* Karten-Text */
+.card__information {
+  padding: 16px 0 0 !important;
+}
+
+/* Produkttitel */
+.card__heading a,
+.card__heading .full-unstyled-link {
+  font-size: var(--fs-small) !important;
+  font-weight: var(--fw-medium) !important;
+  color: var(--c-text) !important;
+  text-decoration: none !important;
+}
+
+/* Preis */
+.price-item {
+  font-size: var(--fs-small) !important;
+  color: var(--c-muted) !important;
+}
+
+/* Sektions-Titel über Produkten */
+.featured-collection .title {
+  font-size: var(--fs-xs) !important;
+  font-weight: var(--fw-semibold) !important;
+  letter-spacing: 0.26em !important;
+  text-transform: uppercase !important;
+  color: var(--c-muted) !important;
+}
+
+
+/* ============================================================
+   8. STORY SECTION (Multirow)
+   ============================================================ */
+
+.multirow__row-content {
+  padding: 64px 72px !important;
+}
+
+.row__caption {
+  font-size: var(--fs-xs) !important;
+  font-weight: var(--fw-semibold) !important;
+  letter-spacing: 0.26em !important;
+  text-transform: uppercase !important;
+  color: var(--c-muted) !important;
+  display: block !important;
+  margin-bottom: 16px !important;
+}
+
+.row__heading {
+  font-size: var(--fs-h2) !important;
+  font-weight: var(--fw-bold) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--c-text) !important;
+  margin-bottom: 20px !important;
+}
+
+.row__text p, .row__text {
+  font-size: var(--fs-body) !important;
+  line-height: 1.75 !important;
+  color: var(--c-muted) !important;
+  max-width: 440px !important;
+}
+
+
+/* ============================================================
+   9. BUTTONS — einheitlich
+   ============================================================ */
+
+.button,
+.button--primary,
+.button--secondary,
+a.button {
+  font-size: var(--fs-xs) !important;
+  font-weight: var(--fw-semibold) !important;
+  letter-spacing: 0.20em !important;
+  text-transform: uppercase !important;
+  padding: 14px 40px !important;
+  border-radius: 0 !important;
+  border-width: 1px !important;
+  transition: opacity 0.25s ease !important;
+}
+
+.button:hover,
+.button--primary:hover { opacity: 0.8 !important; }
+.button--secondary:hover { opacity: 0.65 !important; }
+
+.quick-add__submit,
+.product-form__submit {
+  font-size: var(--fs-xs) !important;
+  font-weight: var(--fw-semibold) !important;
+  letter-spacing: 0.20em !important;
+  text-transform: uppercase !important;
+  padding: 12px 24px !important;
+  border-radius: 0 !important;
+}
+
+
+/* ============================================================
+   10. FOOTER
+   ============================================================ */
+
+.footer {
+  border-top: 1px solid var(--c-border) !important;
+}
+
+.footer__heading {
+  font-size: var(--fs-xs) !important;
+  font-weight: var(--fw-semibold) !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+.footer p,
+.footer li,
+.footer a {
+  font-size: var(--fs-small) !important;
+  color: var(--c-muted) !important;
+}
+
+
+/* ============================================================
+   11. HEADER ICONS & CART BADGE
+   ============================================================ */
+
+/* Header Action-Icons: 20×20px */
+.header__icon > svg,
+.header__icon .svg-wrapper svg {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+}
+
+/* Cart-Badge rund */
+.cart-count-bubble {
+  border-radius: 50% !important;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media screen and (max-width: 749px) {
+  .multirow__row-content { padding: 32px 20px !important; }
+
+  .product-grid.grid {
+    column-gap: 12px !important;
+    row-gap: 32px !important;
+  }
+
+  /* Trust Bar: gestapelt auf Mobile */
+  .multicolumn-list__item {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    border-left: none !important;
+    border-top: 1px solid var(--c-border) !important;
+    padding: 16px 0 !important;
+  }
+
+  .multicolumn-list__item:first-child {
+    border-top: none !important;
+  }
+}

@@ -33,12 +33,14 @@
     aria-controls="{{ localPosition }}-country-results"
     aria-describedby="{{ localPosition }}Label"
   >
-    <span>
-      {{- localization.country.name }} |
-      {{ localization.country.currency.iso_code }}
-      {{ localization.country.currency.symbol -}}
+    <span class="localization-country-group">
+      <span class="localization-country-name">{{- localization.country.flag_emoji -}}&nbsp;{{- localization.country.name -}}</span>
+      {{- 'icon-caret.svg' | inline_asset_content -}}
     </span>
-    {{ 'icon-caret.svg' | inline_asset_content }}
+    <span class="localization-currency-group">
+      <span class="localization-currency-name">{{- localization.country.currency.iso_code -}}</span>
+      {{- 'icon-caret.svg' | inline_asset_content -}}
+    </span>
   </button>
   <div class="disclosure__list-wrapper country-selector" hidden>
     <div class="country-filter{% unless show_country_filter %} country-filter--no-padding{% endunless %}">
