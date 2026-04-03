@@ -1,35 +1,36 @@
 /* ============================================================
-   LIVYDA — Header & Slideshow
-   Einheitlich mit Design System v3
+   LIVYDA — Header Minimalist B&W
    ============================================================ */
 
 /* ---- Announcement Bar ----------------------------------- */
 .section-announcement-bar {
-  font-size: 12px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
   letter-spacing: 0.18em !important;
   text-transform: uppercase !important;
-  padding: 9px 0 !important;
+  padding: 10px 0 !important;
 }
 
 .announcement-bar__message {
-  font-size: 12px !important;
+  font-size: 11px !important;
   letter-spacing: 0.18em !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
 }
 
-/* ---- Header Basis ---------------------------------------- */
+/* ---- Header -------------------------------------------- */
 .section-header {
-  transition: background 0.4s ease, border-color 0.4s ease !important;
+  transition: background 0.35s ease, border-color 0.35s ease !important;
 }
 
-.header-wrapper {
+.header-wrapper,
+.header-wrapper--border-bottom {
   border-bottom: none !important;
 }
 
 .header {
-  padding-top: 18px !important;
-  padding-bottom: 18px !important;
-  min-height: 64px !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  min-height: 68px !important;
 }
 
 /* ---- Logo ----------------------------------------------- */
@@ -38,26 +39,26 @@
 }
 
 .header__heading {
-  font-size: 15px !important;
+  font-size: 14px !important;
   font-weight: 700 !important;
-  letter-spacing: 0.32em !important;
+  letter-spacing: 0.30em !important;
   text-transform: uppercase !important;
 }
 
 .header__heading-logo {
-  max-height: 40px !important;
+  max-height: 36px !important;
   width: auto !important;
 }
 
-/* ---- Navigation ------------------------------------------ */
+/* ---- Navigation ----------------------------------------- */
 .header__menu-item {
   font-size: 11px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.20em !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
   text-transform: uppercase !important;
-  padding: 0 14px !important;
-  opacity: 0.80 !important;
-  transition: opacity 0.25s ease !important;
+  padding: 0 16px !important;
+  opacity: 0.70 !important;
+  transition: opacity 0.2s ease !important;
 }
 
 .header__menu-item:hover {
@@ -65,12 +66,12 @@
 }
 
 .header__menu-item .header__active-menu-item {
+  opacity: 1 !important;
   border-bottom: 1px solid currentColor !important;
   padding-bottom: 2px !important;
-  opacity: 1 !important;
 }
 
-/* ---- Header Icons — alle 40×40px, SVG 20×20px ----------- */
+/* ---- Icons — einheitlich 40×40px / SVG 20×20px ---------- */
 .header__icon {
   width: 40px !important;
   height: 40px !important;
@@ -78,11 +79,11 @@
   align-items: center !important;
   justify-content: center !important;
   padding: 0 !important;
-  transition: opacity 0.25s ease !important;
+  transition: opacity 0.2s ease !important;
 }
 
 .header__icon:hover {
-  opacity: 0.65 !important;
+  opacity: 0.6 !important;
 }
 
 .header__icon svg {
@@ -91,12 +92,12 @@
   display: block !important;
 }
 
-/* ---- Country/Language Selector -------------------------- */
+/* ---- Selector (Country) --------------------------------- */
 .localization-form__select,
 .disclosure__button {
   font-size: 11px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.16em !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
   text-transform: uppercase !important;
   padding: 0 10px !important;
   height: 40px !important;
@@ -106,27 +107,21 @@
   background: none !important;
   cursor: pointer !important;
   gap: 5px !important;
-  transition: opacity 0.25s ease !important;
+  transition: opacity 0.2s ease !important;
 }
 
 .localization-form__select:hover,
 .disclosure__button:hover {
-  opacity: 0.65 !important;
+  opacity: 0.6 !important;
 }
 
-/* Caret-Icon im Selector: kleiner als Action-Icons */
 .disclosure__button svg {
   width: 10px !important;
   height: 10px !important;
   flex-shrink: 0 !important;
 }
 
-/* ---- Trennlinie deaktivieren ----------------------------- */
-.header-wrapper--border-bottom {
-  border-bottom: none !important;
-}
-
-/* ---- Icons-Gruppe --------------------------------------- */
+/* ---- Icons Gruppe --------------------------------------- */
 .header__icons {
   display: flex !important;
   align-items: center !important;
@@ -137,8 +132,8 @@
 .cart-count-bubble {
   width: 18px !important;
   height: 18px !important;
-  font-size: 11px !important;
-  font-weight: 500 !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -146,7 +141,7 @@
 }
 
 /* ============================================================
-   TRANSPARENT-OVER-HERO (nur Homepage)
+   TRANSPARENT HEADER (Homepage)
    ============================================================ */
 
 .lv-header-transparent .shopify-section-group-header-group {
@@ -163,14 +158,14 @@
   border-bottom: none !important;
 }
 
-/* Weiße Elemente wenn transparent */
+/* Weisse Elemente über Hero */
 .lv-header-transparent:not(.lv-scrolled) .header__heading,
-.lv-header-transparent:not(.lv-scrolled) .header__heading-link .h2 {
-  color: #fff !important;
-}
-
+.lv-header-transparent:not(.lv-scrolled) .header__heading-link .h2,
 .lv-header-transparent:not(.lv-scrolled) .header__menu-item,
-.lv-header-transparent:not(.lv-scrolled) .header__menu-item span {
+.lv-header-transparent:not(.lv-scrolled) .header__menu-item span,
+.lv-header-transparent:not(.lv-scrolled) .header__icon,
+.lv-header-transparent:not(.lv-scrolled) .disclosure__button,
+.lv-header-transparent:not(.lv-scrolled) .localization-form__select {
   color: #fff !important;
 }
 
@@ -182,25 +177,15 @@
   stroke: #fff !important;
 }
 
-.lv-header-transparent:not(.lv-scrolled) .header__icon {
-  color: #fff !important;
-}
-
 .lv-header-transparent:not(.lv-scrolled) .cart-count-bubble {
-  background: rgba(255,255,255,0.25) !important;
+  background: rgba(255,255,255,0.20) !important;
   color: #fff !important;
 }
 
-.lv-header-transparent:not(.lv-scrolled) .disclosure__button,
-.lv-header-transparent:not(.lv-scrolled) .localization-form__select {
-  color: #fff !important;
-}
-
-/* Scrolled: heller Hintergrund mit dünner Linie */
+/* Scrolled: weisser Hintergrund */
 .lv-scrolled .section-header {
-  background: rgba(250, 250, 248, 0.97) !important;
-  box-shadow: none !important;
-  border-bottom: 1px solid rgba(26, 46, 46, 0.10) !important;
+  background: rgba(255, 255, 255, 0.97) !important;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
 }
@@ -212,52 +197,52 @@
 .slideshow .slide__text-wrapper,
 .slideshow .slide__text-content {
   text-align: center !important;
-  max-width: 720px !important;
+  max-width: 800px !important;
   margin: 0 auto !important;
 }
 
-/* H1 Hero: 36–56px, Bold 700 */
+/* H1 Hero */
 .slideshow .slide__heading,
 .slideshow h1,
 .slideshow h2 {
-  font-size: clamp(34px, 5vw, 56px) !important;
+  font-size: clamp(36px, 5.5vw, 72px) !important;
   font-weight: 700 !important;
-  letter-spacing: -0.01em !important;
-  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
   color: #ffffff !important;
-  margin-bottom: 16px !important;
+  margin-bottom: 20px !important;
 }
 
-/* Eyebrow/Subheading: 13px, Medium, Uppercase */
+/* Subheading */
 .slideshow .slide__subheading {
   font-size: 13px !important;
   font-weight: 500 !important;
   letter-spacing: 0.20em !important;
   text-transform: uppercase !important;
-  color: rgba(255,255,255,0.80) !important;
-  margin-bottom: 36px !important;
+  color: rgba(255,255,255,0.75) !important;
+  margin-bottom: 40px !important;
 }
 
-/* Hero Button — Ghost (konsistent mit Button-System) */
+/* Hero Button */
 .slideshow .slide__cta a,
 .slideshow .slide__cta .button {
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.20em !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
   text-transform: uppercase !important;
-  padding: 14px 40px !important;
+  padding: 16px 48px !important;
   border-radius: 0 !important;
-  border: 1px solid rgba(255,255,255,0.70) !important;
+  border: 1px solid rgba(255,255,255,0.80) !important;
   background: transparent !important;
   color: #ffffff !important;
   transition: background 0.3s ease, border-color 0.3s ease !important;
-  line-height: 1 !important;
+  display: inline-block !important;
 }
 
 .slideshow .slide__cta a:hover,
 .slideshow .slide__cta .button:hover {
-  background: rgba(255,255,255,0.15) !important;
-  border-color: rgba(255,255,255,1) !important;
+  background: rgba(255,255,255,0.18) !important;
+  border-color: #ffffff !important;
 }
 
 /* ============================================================
@@ -272,16 +257,11 @@
   }
 
   .header__heading-logo {
-    max-height: 32px !important;
-  }
-
-  .header__menu-item {
-    font-size: 10px !important;
-    padding: 0 10px !important;
+    max-height: 28px !important;
   }
 
   .slideshow .slide__heading,
   .slideshow h1 {
-    font-size: clamp(28px, 8vw, 40px) !important;
+    font-size: clamp(30px, 9vw, 44px) !important;
   }
 }

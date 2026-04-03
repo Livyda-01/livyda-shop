@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "slideshow": {
@@ -16,13 +7,13 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/home-decor-minimal-2.jpg",
-            "image_overlay_opacity": 20,
-            "heading": "Sauberkeit,\nneu gedacht.",
+            "image_overlay_opacity": 40,
+            "heading": "Sauberkeit, neu gedacht.",
             "heading_size": "h1",
-            "subheading": "Ein saubereres Zuhause ohne Aufwand.",
-            "button_label": "Kollektion entdecken",
+            "subheading": "Smarte Reinigungstechnologie für dein Zuhause.",
+            "button_label": "Jetzt entdecken",
             "link": "shopify://collections/all",
-            "button_style_secondary": true,
+            "button_style_secondary": false,
             "show_text_box": false,
             "box_align": "middle-center",
             "text_alignment": "center",
@@ -36,11 +27,11 @@
       ],
       "settings": {
         "layout": "full_bleed",
-        "slide_height": "adapt_image",
-        "slider_visual": "dots",
+        "slide_height": "large",
+        "slider_visual": "none",
         "auto_rotate": false,
         "change_slides_speed": 5,
-        "image_behavior": "none",
+        "image_behavior": "zoom-in",
         "show_text_below": false,
         "accessibility_info": "Livyda Hero"
       }
@@ -51,7 +42,7 @@
         "col_1": {
           "type": "column",
           "settings": {
-            "title": "★  4.9 / 5",
+            "title": "★ 4.9 / 5 Sterne",
             "text": "<p>Über 2'200 zufriedene Kunden</p>",
             "link_label": "",
             "link": ""
@@ -60,7 +51,7 @@
         "col_2": {
           "type": "column",
           "settings": {
-            "title": "✈  Kostenloser Versand",
+            "title": "Kostenloser Versand",
             "text": "<p>Gratis Lieferung ab CHF 90</p>",
             "link_label": "",
             "link": ""
@@ -69,7 +60,7 @@
         "col_3": {
           "type": "column",
           "settings": {
-            "title": "🛡  2 Jahre Garantie",
+            "title": "2 Jahre Garantie",
             "text": "<p>Geprüfte Qualität, sicher einkaufen</p>",
             "link_label": "",
             "link": ""
@@ -83,7 +74,7 @@
       ],
       "settings": {
         "title": "",
-        "heading_size": "h2",
+        "heading_size": "h3",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 3,
@@ -94,55 +85,8 @@
         "swipe_on_mobile": false,
         "color_scheme": "scheme-2",
         "columns_mobile": "1",
-        "padding_top": 40,
-        "padding_bottom": 40
-      }
-    },
-    "multirow_6mdqNP": {
-      "type": "multirow",
-      "blocks": {
-        "row_Akwjww": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/42a3960056580183bc3958e385a102c9.jpg",
-            "caption": "MEHR LEBEN. WENIGER PUTZEN.",
-            "heading": "",
-            "text": "<p>Stellen Sie sich vor: Ein Samstagnachmittag ohne Staubsauger. Ohne Fensterputzen. Ohne schlechtes Gewissen.</p><p>Nur Sie, Ihre Familie und Zeit für die Momente, die wirklich zählen. Moderne Robotertechnologie schenkt Ihnen zurück, was am wertvollsten ist: Zeit.</p>",
-            "button_label": "Produkte entdecken",
-            "button_link": "shopify://collections/all"
-          }
-        },
-        "row_jKeWdx": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/S13da0e05d3de4c33a91ecd9846ab75e56_jpg_640x640q75_jpg.avif",
-            "caption": "SCHWEIZER PRÄZISION. ZUHAUSE.",
-            "heading": "",
-            "text": "<p>Das Geheimnis eines makellosen Zuhauses? Technologie, die arbeitet, während Sie es nicht tun.</p><p>Entwickelt nach Schweizer Qualitätsstandards. Getestet in echten Haushalten. Perfektioniert für Ihr Leben.</p><p>🇨🇭 Von Schweizer Familien getestet &nbsp;|&nbsp; ✓ Über 2'200 zufriedene Haushalte</p>",
-            "button_label": "Produkte entdecken",
-            "button_link": "shopify://collections/all"
-          }
-        }
-      },
-      "block_order": [
-        "row_Akwjww",
-        "row_jKeWdx"
-      ],
-      "name": "t:sections.multirow.presets.name",
-      "settings": {
-        "image_height": "medium",
-        "desktop_image_width": "medium",
-        "image_layout": "alternate-left",
-        "heading_size": "h2",
-        "text_style": "body",
-        "button_style": "secondary",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "row_color_scheme": "",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "featured-collection-0": {
@@ -161,7 +105,7 @@
         "show_view_all": false,
         "view_all_style": "solid",
         "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
@@ -172,12 +116,59 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "multirow_story": {
+      "type": "multirow",
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/42a3960056580183bc3958e385a102c9.jpg",
+            "caption": "UNSERE MISSION",
+            "heading": "",
+            "text": "<p>Wir glauben, dass deine Zeit zu wertvoll ist, um sie mit Putzen zu verbringen. Livyda entwickelt smarte Reinigungslösungen, die für dich arbeiten — leise, effizient, zuverlässig.</p>",
+            "button_label": "Alle Produkte",
+            "button_link": "shopify://collections/all"
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/S13da0e05d3de4c33a91ecd9846ab75e56_jpg_640x640q75_jpg.avif",
+            "caption": "SCHWEIZER QUALITÄT",
+            "heading": "",
+            "text": "<p>Entwickelt nach Schweizer Qualitätsstandards und in über 2'200 Haushalten erprobt. Jedes Livyda-Produkt steht für Langlebigkeit, Sicherheit und echten Mehrwert.</p>",
+            "button_label": "Mehr erfahren",
+            "button_link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2"
+      ],
+      "name": "Über uns",
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-2",
+        "row_color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "slideshow",
     "trust_bar",
-    "multirow_6mdqNP",
-    "featured-collection-0"
+    "featured-collection-0",
+    "multirow_story"
   ]
 }
