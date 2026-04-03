@@ -1,23 +1,8 @@
 /* ============================================================
-   LIVYDA — Header Minimalist B&W
+   LIVYDA — Header
    ============================================================ */
 
-/* ---- Announcement Bar ----------------------------------- */
-.section-announcement-bar {
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.18em !important;
-  text-transform: uppercase !important;
-  padding: 10px 0 !important;
-}
-
-.announcement-bar__message {
-  font-size: 11px !important;
-  letter-spacing: 0.18em !important;
-  font-weight: 600 !important;
-}
-
-/* ---- Header -------------------------------------------- */
+/* ---- Header Basis ---------------------------------------- */
 .section-header {
   transition: background 0.35s ease, border-color 0.35s ease !important;
 }
@@ -30,23 +15,11 @@
 .header {
   padding-top: 20px !important;
   padding-bottom: 20px !important;
-  min-height: 68px !important;
 }
 
 /* ---- Logo ----------------------------------------------- */
-.header__heading-link {
-  text-decoration: none !important;
-}
-
-.header__heading {
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.30em !important;
-  text-transform: uppercase !important;
-}
-
 .header__heading-logo {
-  max-height: 36px !important;
+  max-height: 40px !important;
   width: auto !important;
 }
 
@@ -56,8 +29,7 @@
   font-weight: 600 !important;
   letter-spacing: 0.18em !important;
   text-transform: uppercase !important;
-  padding: 0 16px !important;
-  opacity: 0.70 !important;
+  opacity: 0.75 !important;
   transition: opacity 0.2s ease !important;
 }
 
@@ -71,162 +43,15 @@
   padding-bottom: 2px !important;
 }
 
-/* ---- Icons — einheitlich 40×40px / SVG 20×20px ---------- */
-.header__icon {
-  width: 40px !important;
-  height: 40px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0 !important;
-  transition: opacity 0.2s ease !important;
+/* ---- Scrolled ------------------------------------------- */
+.lv-scrolled .section-header {
+  background: rgba(255, 255, 255, 0.97) !important;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
 }
 
-.header__icon:hover {
-  opacity: 0.6 !important;
-}
-
-.header__icon svg {
-  width: 20px !important;
-  height: 20px !important;
-  display: block !important;
-}
-
-/* ---- Selector (Country) --------------------------------- */
-.localization-form__select,
-.disclosure__button {
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.14em !important;
-  text-transform: uppercase !important;
-  padding: 0 10px !important;
-  height: 40px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  border: none !important;
-  background: none !important;
-  cursor: pointer !important;
-  gap: 5px !important;
-  transition: opacity 0.2s ease !important;
-}
-
-.localization-form__select:hover,
-.disclosure__button:hover {
-  opacity: 0.6 !important;
-}
-
-.disclosure__button svg {
-  width: 10px !important;
-  height: 10px !important;
-  flex-shrink: 0 !important;
-}
-
-/* ---- Icons Gruppe --------------------------------------- */
-.header__icons {
-  display: flex !important;
-  align-items: center !important;
-  gap: 4px !important;
-  margin-left: 12px !important;
-}
-
-/* ---- Icon mit Label (Suche, Konto, Warenkorb) ----------- */
-.header__icon {
-  width: auto !important;
-  height: auto !important;
-  padding: 6px 10px !important;
-  display: inline-flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 5px !important;
-  position: relative !important;
-  transition: opacity 0.2s ease !important;
-  text-decoration: none !important;
-}
-
-.header__icon:hover {
-  opacity: 0.6 !important;
-}
-
-.header__icon svg,
-.header__icon svg * {
-  width: 20px !important;
-  height: 20px !important;
-  min-width: 20px !important;
-  min-height: 20px !important;
-  max-width: 20px !important;
-  max-height: 20px !important;
-  display: block !important;
-  flex-shrink: 0 !important;
-}
-
-/* SVG viewBox fix — alle Icons gleich gross */
-.header__icon .svg-wrapper,
-.header__icon .icon {
-  width: 20px !important;
-  height: 20px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  overflow: hidden !important;
-}
-
-/* Label unter Icon — lowercase, leicht, klein */
-.header__icon::after {
-  font-size: 10px !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.02em !important;
-  text-transform: none !important;
-  line-height: 1 !important;
-  color: currentColor !important;
-  opacity: 0.75 !important;
-}
-
-.header__icon--search::after  { content: 'Suche' !important; }
-.header__icon--account::after { content: 'Konto' !important; }
-.header__icon--cart::after    { content: 'Warenkorb' !important; }
-
-/* ---- Cart Badge ----------------------------------------- */
-.cart-count-bubble {
-  position: absolute !important;
-  top: 2px !important;
-  right: 4px !important;
-  width: 18px !important;
-  height: 18px !important;
-  font-size: 10px !important;
-  font-weight: 600 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border-radius: 50% !important;
-  background: #111111 !important;
-  color: #ffffff !important;
-  line-height: 1 !important;
-}
-
-/* Selektoren: Dawn-Stil beibehalten, nur Schrift anpassen */
-.disclosure__button {
-  font-size: 13px !important;
-  font-weight: 400 !important;
-  letter-spacing: 0 !important;
-  text-transform: none !important;
-  transition: opacity 0.2s ease !important;
-}
-
-.disclosure__button:hover {
-  opacity: 0.65 !important;
-}
-
-/* Caret-Pfeil bleibt klein */
-.disclosure__button .icon-caret svg,
-.disclosure__button > svg:last-child {
-  width: 10px !important;
-  height: 10px !important;
-}
-
-/* ============================================================
-   TRANSPARENT HEADER (Homepage)
-   ============================================================ */
-
+/* ---- Transparent über Hero (Homepage) ------------------- */
 .lv-header-transparent .shopify-section-group-header-group {
   position: absolute !important;
   top: 0;
@@ -241,14 +66,10 @@
   border-bottom: none !important;
 }
 
-/* Weisse Elemente über Hero */
 .lv-header-transparent:not(.lv-scrolled) .header__heading,
-.lv-header-transparent:not(.lv-scrolled) .header__heading-link .h2,
 .lv-header-transparent:not(.lv-scrolled) .header__menu-item,
 .lv-header-transparent:not(.lv-scrolled) .header__menu-item span,
-.lv-header-transparent:not(.lv-scrolled) .header__icon,
-.lv-header-transparent:not(.lv-scrolled) .disclosure__button,
-.lv-header-transparent:not(.lv-scrolled) .localization-form__select {
+.lv-header-transparent:not(.lv-scrolled) .header__icon {
   color: #fff !important;
 }
 
@@ -261,33 +82,19 @@
 }
 
 .lv-header-transparent:not(.lv-scrolled) .cart-count-bubble {
-  background: #ffffff !important;
-  color: #111111 !important;
+  background: rgba(255,255,255,0.25) !important;
+  color: #fff !important;
 }
 
-/* Scrolled: weisser Hintergrund */
-.lv-scrolled .section-header {
-  background: rgba(255, 255, 255, 0.97) !important;
-  border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-}
-
-/* ============================================================
-   SLIDESHOW HERO
-   ============================================================ */
-
-.slideshow .slide__text-wrapper,
-.slideshow .slide__text-content {
+/* ---- Slideshow ------------------------------------------ */
+.slideshow .slide__text-wrapper {
   text-align: center !important;
   max-width: 800px !important;
   margin: 0 auto !important;
 }
 
-/* H1 Hero */
 .slideshow .slide__heading,
-.slideshow h1,
-.slideshow h2 {
+.slideshow h1 {
   font-size: clamp(36px, 5.5vw, 72px) !important;
   font-weight: 700 !important;
   letter-spacing: -0.02em !important;
@@ -296,7 +103,6 @@
   margin-bottom: 20px !important;
 }
 
-/* Subheading */
 .slideshow .slide__subheading {
   font-size: 13px !important;
   font-weight: 500 !important;
@@ -306,7 +112,6 @@
   margin-bottom: 40px !important;
 }
 
-/* Hero Button */
 .slideshow .slide__cta a,
 .slideshow .slide__cta .button {
   font-size: 11px !important;
@@ -318,33 +123,23 @@
   border: 1px solid rgba(255,255,255,0.80) !important;
   background: transparent !important;
   color: #ffffff !important;
-  transition: background 0.3s ease, border-color 0.3s ease !important;
-  display: inline-block !important;
+  transition: background 0.3s ease !important;
 }
 
 .slideshow .slide__cta a:hover,
 .slideshow .slide__cta .button:hover {
-  background: rgba(255,255,255,0.18) !important;
+  background: rgba(255,255,255,0.15) !important;
   border-color: #ffffff !important;
 }
 
-/* ============================================================
-   MOBILE
-   ============================================================ */
-
+/* ---- Mobile -------------------------------------------- */
 @media screen and (max-width: 749px) {
   .header {
     padding-top: 14px !important;
     padding-bottom: 14px !important;
-    min-height: 56px !important;
   }
 
   .header__heading-logo {
     max-height: 28px !important;
-  }
-
-  .slideshow .slide__heading,
-  .slideshow h1 {
-    font-size: clamp(30px, 9vw, 44px) !important;
   }
 }
