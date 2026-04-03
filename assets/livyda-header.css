@@ -203,40 +203,24 @@
   line-height: 1 !important;
 }
 
-/* ---- Country/Language Selektoren ----------------------- */
-.localization-form,
-.localization-selector {
-  display: flex !important;
-  align-items: center !important;
-  gap: 4px !important;
-}
-
-.localization-form__select,
+/* Selektoren: Dawn-Stil beibehalten, nur Schrift anpassen */
 .disclosure__button {
   font-size: 13px !important;
   font-weight: 400 !important;
-  letter-spacing: 0.01em !important;
+  letter-spacing: 0 !important;
   text-transform: none !important;
-  padding: 0 6px !important;
-  height: 36px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  border: none !important;
-  background: none !important;
-  cursor: pointer !important;
-  gap: 4px !important;
   transition: opacity 0.2s ease !important;
 }
 
-.localization-form__select:hover,
 .disclosure__button:hover {
-  opacity: 0.6 !important;
+  opacity: 0.65 !important;
 }
 
-.disclosure__button svg {
+/* Caret-Pfeil bleibt klein */
+.disclosure__button .icon-caret svg,
+.disclosure__button > svg:last-child {
   width: 10px !important;
   height: 10px !important;
-  flex-shrink: 0 !important;
 }
 
 /* ============================================================
