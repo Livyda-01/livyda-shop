@@ -34,7 +34,7 @@
     aria-describedby="{{ localPosition }}Label"
   >
     <span class="localization-country-group">
-      <span class="localization-country-name">{{- localization.country.flag_emoji -}}&nbsp;{{- localization.country.name -}}</span>
+      <span class="localization-country-name" data-country-code="{{- localization.country.iso_code -}}">{{- localization.country.name -}}</span>
       {{- 'icon-caret.svg' | inline_asset_content -}}
     </span>
     <span class="localization-currency-group">

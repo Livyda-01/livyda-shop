@@ -27,6 +27,22 @@
   onScroll();
 }());
 
+/* LIVYDA — Länder-Flagge als Emoji vor dem Ländernamen */
+(function () {
+  function isoToFlag(code) {
+    return code.toUpperCase().replace(/./g, function (c) {
+      return String.fromCodePoint(127397 + c.charCodeAt(0));
+    });
+  }
+
+  document.querySelectorAll('.localization-country-name[data-country-code]').forEach(function (el) {
+    var code = el.dataset.countryCode;
+    if (code) {
+      el.textContent = isoToFlag(code) + '\u00A0' + el.textContent;
+    }
+  });
+}());
+
 /* LIVYDA — Scroll Reveal für Sektionen */
 (function () {
   if (!('IntersectionObserver' in window)) return;
